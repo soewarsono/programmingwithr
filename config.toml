@@ -1,4 +1,4 @@
-baseurl = "https://www.programmingwithr.com"
+baseurl = "https://www.programmingwithr.com/"
 languageCode = "en-us"
 title = "Programming with R"
 theme = "blackburn"
