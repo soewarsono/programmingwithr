@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming with R</title>
+    <link>/</link>
+    <description>Recent content on Programming with R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
+    <lastBuildDate>Fri, 26 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome to Programming with R</title>
+      <link>/welcome-to-programming-with-r/</link>
+      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/welcome-to-programming-with-r/</guid>
+      <description>Thank you for visiting Programming with R</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Programming with R is an attempt to share the knowledge of R Programming to the larger world. Typically, It includes :
+ How-To Tutorials R Tips &amp;amp; Tricks New Package Details  and similar content to promote the richness of R and its versatility.
+Thanks for reading!</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description> First Name  Last Name  E-Mail  City  State AL CA IL      Send   </description>
+    </item>
+    
+  </channel>
+</rss>
