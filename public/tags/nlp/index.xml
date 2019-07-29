@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Programming with R</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Programming with R</description>
+    <title>NLP on Programming with R</title>
+    <link>/tags/nlp/</link>
+    <description>Recent content in NLP on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,24 +20,6 @@
       <guid>/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
       <description>Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
 Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).</description>
-    </item>
-    
-    <item>
-      <title>Testing an RMarkdown post</title>
-      <link>/testing-an-rmarkdown-post/</link>
-      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/testing-an-rmarkdown-post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Welcome to Programming with R</title>
-      <link>/welcome-to-programming-with-r/</link>
-      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/welcome-to-programming-with-r/</guid>
-      <description>Thank you for visiting Programming with R</description>
     </item>
     
   </channel>
