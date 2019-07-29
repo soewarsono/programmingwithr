@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Programming with R</title>
-    <link>https://www.programmingwithr.com/tags/</link>
-    <description>Recent content in Tags on Programming with R</description>
+    <title>Categories on Programming with R</title>
+    <link>https://www.programmingwithr.com/categories/</link>
+    <description>Recent content in Categories on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     
-	<atom:link href="https://www.programmingwithr.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.programmingwithr.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

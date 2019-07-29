@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Programming with R</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Programming with R</description>
+    <title>Sentiment Analysis on Programming with R</title>
+    <link>/tags/sentiment-analysis/</link>
+    <description>Recent content in Sentiment Analysis on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/sentiment-analysis/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
