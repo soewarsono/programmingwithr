@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Programming with R</title>
-    <link>/categories/</link>
+    <link>https://www.programmingwithr.com/categories/</link>
     <description>Recent content in Categories on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.programmingwithr.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How-To</title>
-      <link>/categories/how-to/</link>
-      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <link>https://www.programmingwithr.com/categories/how-to/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/how-to/</guid>
+      <guid>https://www.programmingwithr.com/categories/how-to/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Text</title>
-      <link>/categories/text/</link>
-      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <link>https://www.programmingwithr.com/categories/text/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/categories/text/</guid>
+      <guid>https://www.programmingwithr.com/categories/text/</guid>
       <description></description>
     </item>
     
