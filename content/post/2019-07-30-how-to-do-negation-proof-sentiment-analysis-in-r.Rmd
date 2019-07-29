@@ -1,0 +1,100 @@
+---
+title: How to do negation-proof sentiment analysis in R
+author: AbdulMajedRaja
+date: '2019-07-30'
+slug: how-to-do-negation-proof-sentiment-analysis-in-r
+categories:
+  - Text
+  - How-To
+tags:
+  - Sentiment Analysis
+  - Text Analytics
+  - NLP
+  - r-bloggers
+description: 'Basic introduction to sentimentr R Package'
+---
+
+**Sentiment Analysis** is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like *Sarcasm*, *Negations* and similar items make Sentiment Analysis a rather tough nut to crack. 
+
+Deep learning as much as it's effective, it's also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).
+
+### What's Negation (Proof)?
+
+Typical `lexicon` based Sentiment Analysis solutions can't handle Negations easily - which is that **good** is **positive** and **not good** is **negative**. **Negation Proof** solution is something that can handle such negations and classify their `polarity` (`sentiment`) correctly. 
+
+### sentimentr
+
+For building a negation-proof sentiment analysis solution, we're going to use the R package `sentimentr` by *Tyler Rinker*.
+
+### Why sentimentr?
+
+According to the documentation of [sentimentr](https://github.com/trinker/sentimentr), 
+
+***So what does*** **sentimentr** ***do that other packages don't?***
+
+> **sentimentr** attempts to take into account valence shifters (i.e.,
+> negators, amplifiers (intensifiers), de-amplifiers (downtoners), and
+> adversative conjunctions) while maintaining speed. Simply put,
+> **sentimentr** is an augmented dictionary lookup. 
+
+For more information on Valence Shifters, Check out sentimentr's [documentation](https://github.com/trinker/sentimentr/blob/master/README.md). 
+
+### Installation
+
+You can install the stable version of `sentimentr` from CRAN:
+
+```{r eval=FALSE}
+
+install.packages("sentimentr")
+
+```
+
+or 
+
+install the development version from Github:
+```{r eval=FALSE}
+
+# install.packages("devtools")
+
+devtools::install_github("trinker/lexicon")
+devtools::install_github("trinker/sentimentr")
+
+```
+
+### Loading the package
+
+Let's import `sentimentr` and also `magrittr` for pipe operator (`%>%`) and `dplyr` for data manipulation. 
+
+```{r warning=FALSE, message=FALSE}
+library(sentimentr) 
+library(magrittr)
+library(dplyr)
+```
+
+### Sample Text (with Negations)
+
+Let's define two sentences for us to check if `sentimentr` is negation-proof.
+
+```{r}
+text1 <- "I am a good girl. Today I am happy"
+
+text2 <- "I am not a good girl. Today I'm not happy"
+```
+
+### Sentiment Analysis in Action
+
+We'll use the function `sentiment()` to identify the approximate the sentiment (polarity) of text by sentence.
+
+```{r}
+sentimentr::sentiment(text1)
+```
+
+```{r}
+sentimentr::sentiment(text2)
+```
+
+As we can see from the above outputs, using `sentimentr` is doing a good job in rightly scoring the sentiment score for sentence with and without negations (valence shifters).
+
+### The End
+
+This is just a very simple (perhaps, Naive too) walkthrough of the `sentimentr` package but it has got a lot more like `sentiment_by()`, `highlight()`, `profanity()` and much more. **Tyler Rinker** has got a very nice, comprehensive and super-helpful documentation and also benchmarks comparing `sentimentr` with other similar packages. 
