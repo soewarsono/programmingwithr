@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,11 +15,20 @@
     <item>
       <title>How to do negation-proof sentiment analysis in R</title>
       <link>/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
-      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
       <description>Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
 Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).</description>
+    </item>
+    
+    <item>
+      <title>New post md</title>
+      <link>/new-post-md/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/new-post-md/</guid>
+      <description>Thanky ou for seeing us!</description>
     </item>
     
     <item>

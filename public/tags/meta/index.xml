@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Fri, 26 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/meta/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New post md</title>
+      <link>/new-post-md/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/new-post-md/</guid>
+      <description>Thanky ou for seeing us!</description>
+    </item>
     
     <item>
       <title>Welcome to Programming with R</title>

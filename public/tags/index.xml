@@ -7,26 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>r-bloggers</title>
-      <link>/tags/r-bloggers/</link>
-      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <title>meta</title>
+      <link>/tags/meta/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-bloggers/</guid>
+      <guid>/tags/meta/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>meta</title>
-      <link>/tags/meta/</link>
-      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
+      <title>r-bloggers</title>
+      <link>/tags/r-bloggers/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/meta/</guid>
+      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     
