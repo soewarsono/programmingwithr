@@ -7,21 +7,21 @@ author = "AbdulMajedRaja RS"
 copyright = "&copy; 2019. AbdulMajedRaja - All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 canonifyurls = true
-paginate = 4
+paginate = 10
 
 [permalinks]
   post = "/:slug/"
 
 [indexes]
   tag = "tags"
-  category = "categories"
+  topic = "topics"
 
 [params]
   # Shown in the home page
   subtitle = "How-To Tutorials Tips - R Programming for Humans"
   brand = "Learn R"
   googleAnalytics = "UA-144565273-1"
-  #disqus = "amrrs"
+  disqus = "amrrs"
   # CSS name for highlight.js
   highlightjs = "github"
   dateFormat = "02 Jan 2006"

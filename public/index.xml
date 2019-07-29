@@ -7,19 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>How to do negation-proof sentiment analysis in R</title>
-      <link>/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
-      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <title>Testing an RMarkdown post</title>
+      <link>/testing-an-rmarkdown-post/</link>
+      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
-      <description>Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
-Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).</description>
+      <guid>/testing-an-rmarkdown-post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Welcome to Programming with R</title>
+      <link>/welcome-to-programming-with-r/</link>
+      <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/welcome-to-programming-with-r/</guid>
+      <description>Thank you for visiting Programming with R</description>
     </item>
     
     <item>
@@ -39,7 +47,7 @@ Thanks for reading!</description>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>/contact/</guid>
-      <description> First Name  Last Name  E-Mail     Send   </description>
+      <description> First Name  Last Name  E-Mail  City  State AL CA IL      Send   </description>
     </item>
     
   </channel>
