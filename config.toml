@@ -21,6 +21,7 @@ paginate = 10
   subtitle = "How-To Tutorials Tips - R Programming for Humans"
   brand = "Learn R"
   googleAnalytics = "UA-144565273-1"
+  disqus = "amrrs"
   # CSS name for highlight.js
   highlightjs = "github"
   dateFormat = "02 Jan 2006"

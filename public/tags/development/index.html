@@ -5,9 +5,9 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.56.1" />
+  <meta name="generator" content="Hugo 0.55.6" />
 
-  <title>Sentiment Analysis &middot; Programming with R</title>
+  <title>development &middot; Programming with R</title>
 
   
   
@@ -41,7 +41,7 @@
  
   
   <link rel="alternate" type="application/rss+xml" title="Programming with R"
-    href='/tags/sentiment-analysis/index.xml' />
+    href='/tags/development/index.xml' />
   
 
   
@@ -70,7 +70,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="/">Learn R</a>
+  <a class="pure-menu-heading brand" href="/">programming(R)</a>
 
 
   <div class="pure-menu">
@@ -108,8 +108,16 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href='/tags/sentiment-analysis/index.xml'><i
+      <a class="pure-menu-link" href='/tags/development/index.xml'><i
           class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/*" rel="me" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
     </li>
     
 
@@ -144,12 +152,8 @@
     
 
     
-
-    
-
-    
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://linkedin.com/in/amrrs/" rel="me" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" rel="me" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
     </li>
     
 
@@ -173,6 +177,10 @@
 
     
 
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" rel="me" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
     
 
     
@@ -214,20 +222,20 @@
 
 
 <div class="header">
-  <h1>Sentiment Analysis</h1>
+  <h1>development</h1>
 </div>
 
 <div class="content">
   
     <article>
   <header>
-    <h2><a href="/how-to-do-negation-proof-sentiment-analysis-in-r/">How to do negation-proof sentiment analysis in R</a></h2>
+    <h2><a href="/hugo-template-primer/">(Hu)go Template Primer</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Jul 2019</time>
+    <time>02 Apr 2014</time>
   </div>
 
   
@@ -240,13 +248,15 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="/tags/sentiment-analysis">Sentiment Analysis</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="/tags/go">go</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/text-analytics">Text Analytics</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="/tags/golang">golang</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/nlp">NLP</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="/tags/templates">templates</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="/tags/r-bloggers">r-bloggers</a>
+      <a class="post-taxonomy-tag" href="/tags/themes">themes</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/development">development</a>
     
   </div>
   
@@ -257,13 +267,67 @@
   </header>
 
   <p>
-  Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
-Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).
+  Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
+This document is a brief primer on using go templates.
   </p>
 
   
   <footer>
-    <a href="/how-to-do-negation-proof-sentiment-analysis-in-r/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="/hugo-template-primer/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/getting-started-with-hugo/">Getting Started with Hugo</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>02 Apr 2014</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/go">go</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/hugo">hugo</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/development">development</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at installing hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:
+  </p>
+
+  
+  <footer>
+    <a href="/getting-started-with-hugo/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

@@ -8,7 +8,7 @@ categories:
 tags:
   - meta
 description: ''
-topics: [R]
+topics: []
 ---
 
 Thank you for visiting **Programming with R**
