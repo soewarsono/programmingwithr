@@ -11,6 +11,5 @@
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
   </channel>
 </rss>
