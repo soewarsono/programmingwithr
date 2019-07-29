@@ -7,7 +7,7 @@ author = "AbdulMajedRaja RS"
 copyright = "&copy; 2019. AbdulMajedRaja - All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 canonifyurls = true
-paginate = 5
+paginate = 4
 
 [permalinks]
   post = "/:slug/"
