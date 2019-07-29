@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Programming with R</title>
-    <link>https://www.programmingwithr.com/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Fri, 26 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.programmingwithr.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testing an RMarkdown post</title>
-      <link>https://www.programmingwithr.com/testing-an-rmarkdown-post/</link>
+      <link>/testing-an-rmarkdown-post/</link>
       <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/testing-an-rmarkdown-post/</guid>
+      <guid>/testing-an-rmarkdown-post/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Welcome to Programming with R</title>
-      <link>https://www.programmingwithr.com/welcome-to-programming-with-r/</link>
+      <link>/welcome-to-programming-with-r/</link>
       <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/welcome-to-programming-with-r/</guid>
+      <guid>/welcome-to-programming-with-r/</guid>
       <description>Thank you for visiting Programming with R</description>
     </item>
     
