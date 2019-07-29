@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/another-test-post/</loc>
+    <lastmod>2019-07-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/how-to-do-negation-proof-sentiment-analysis-in-r/</loc>
     <lastmod>2019-07-30T00:00:00+00:00</lastmod>
   </url>
