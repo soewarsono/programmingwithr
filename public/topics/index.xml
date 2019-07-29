@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Topics on Programming with R</title>
-    <link>/topics/</link>
+    <link>https://www.programmingwithr.com/topics/</link>
     <description>Recent content in Topics on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Fri, 26 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/topics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.programmingwithr.com/topics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R</title>
-      <link>/topics/r/</link>
+      <link>https://www.programmingwithr.com/topics/r/</link>
       <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/topics/r/</guid>
+      <guid>https://www.programmingwithr.com/topics/r/</guid>
       <description></description>
     </item>
     
