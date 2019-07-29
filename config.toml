@@ -1,5 +1,5 @@
-baseurl = "https://www.programmingwithr.com/"
-#baseurl = "/"
+#baseurl = "https://www.programmingwithr.com/"
+baseurl = "/"
 languageCode = "en-us"
 title = "Programming with R"
 theme = "blackburn"
@@ -7,7 +7,7 @@ author = "AbdulMajedRaja RS"
 copyright = "&copy; 2019. AbdulMajedRaja - All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 canonifyurls = true
-paginate = 10
+paginate = 5
 
 [permalinks]
   post = "/:slug/"
