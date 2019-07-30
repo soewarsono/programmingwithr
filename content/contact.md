@@ -1,6 +1,6 @@
 ---
 date: "2019-06-29"
-description: How to contact me
+description: How to contact us
 sidemenu: "true"
 title: Contact
 ---
