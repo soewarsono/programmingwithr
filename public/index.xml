@@ -23,6 +23,16 @@ Deep learning as much as it’s effective, it’s also computationally expensive
     </item>
     
     <item>
+      <title>Contact</title>
+      <link>https://www.programmingwithr.com/contact/</link>
+      <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.programmingwithr.com/contact/</guid>
+      <description>Thank you visiting us. If you&amp;rsquo;ve got a feedback / suggestion or you&amp;rsquo;d like to write for us?
+Contact us @ contact@programmingwithr.com</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://www.programmingwithr.com/about/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
@@ -31,15 +41,6 @@ Deep learning as much as it’s effective, it’s also computationally expensive
       <description>Programming with R is an attempt to share the knowledge of R Programming to the larger world. Typically, It includes :
  How-To Tutorials R Tips &amp;amp; Tricks New Package Details  and similar content to promote the richness of R and its versatility.
 Thanks for reading!</description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>https://www.programmingwithr.com/contact/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.programmingwithr.com/contact/</guid>
-      <description> First Name  Last Name  E-Mail  City  State AL CA IL      Send   </description>
     </item>
     
   </channel>
