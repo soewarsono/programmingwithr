@@ -1,0 +1,84 @@
+---
+title: How to embed Excel-like Spreadsheet Table in RMarkdown
+author: AbdulMajedRaja
+date: '2019-07-30'
+slug: how-to-embed-excel-like-spreadsheet-table-in-rmarkdown
+categories:
+  - How-To
+  - RMarkdown
+tags:
+  - javascript
+  - excel
+  - spreadsheet
+description: 'using excelR library in R'
+topics: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="/rmarkdown-libs/jexcel/css/jexcel.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/jexcel/css/japp.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/jexcel/css/jsuites.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/jexcel/js/jexcel.min.js"></script>
+<script src="/rmarkdown-libs/jexcel/js/japp.js"></script>
+<script src="/rmarkdown-libs/jexcel/js/jsuites.js"></script>
+<script src="/rmarkdown-libs/jexcel-binding/jexcel.js"></script>
+
+
+<p>If there’s a component that’s least interactive in an RMarkdown rendered document or a Shiny app - that’d be the Table that’s displayed. Yes, <code>datatable</code> does a good job of improving the Table Apperance and custom formatting like Conditional Formatting, it doesn’t give a Google Spreadsheet or Microsoft Excel flavor. This post is to let you know how you can embed that excel-like spreadsheet Table in your Rmarkdown.</p>
+<div id="excelr---intro" class="section level3">
+<h3>excelR - Intro</h3>
+<p>The package that’s going to help in this endeavor is <a href="https://github.com/Swechhya/excelR"><code>excelR</code></a> by <strong>Swechhya Bista</strong>. This is an R interface to ‘<a href="https://bossanova.uk/jexcel/v3/">jExcel</a>’ library to create web-based interactive tables and spreadsheets compatible with ‘Excel’ or any other spreadsheet software.</p>
+</div>
+<div id="excelr---installation" class="section level3">
+<h3>excelR - Installation</h3>
+<p>The stable version of <code>excelR</code> can be installed from CRAN:</p>
+<pre class="r"><code>install.packages(&#39;excelR&#39;)</code></pre>
+<p>or, the latest development version from Github:</p>
+<pre class="r"><code>devtools::install_github(&#39;Swechhya/excelR&#39;)</code></pre>
+</div>
+<div id="excelr---loading-and-basic-example" class="section level3">
+<h3>excelR - Loading and Basic Example</h3>
+<pre class="r"><code>library(excelR)
+
+excelTable(head(iris)) </code></pre>
+<div id="htmlwidget-1" style="width:0px;height:0px;" class="jexcel html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[[5.1,3.5,1.4,0.2,"setosa"],[4.9,3,1.4,0.2,"setosa"],[4.7,3.2,1.3,0.2,"setosa"],[4.6,3.1,1.5,0.2,"setosa"],[5,3.6,1.4,0.2,"setosa"],[5.4,3.9,1.7,0.4,"setosa"]],"colHeaders":["Sepal.Length","Sepal.Width","Petal.Length","Petal.Width","Species"],"columnSorting":true,"columnDrag":false,"columnResize":true,"rowResize":false,"rowDrag":true,"editable":true,"allowInsertRow":true,"allowInsertColumn":true,"allowDeleteRow":true,"allowDeleteColumn":true,"allowRenameColumn":true,"allowComments":false,"wordWrap":false,"selectionCopy":true,"search":false,"fullscreen":false,"lazyLoading":false,"loadingSpin":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="excel-formulas" class="section level3">
+<h3>Excel Formulas</h3>
+<p><code>excelR</code> helps you create spreadsheet tables that support Basic Excel Forumulas.
+In the table below, 1st Column 6th Row (A6) if you enter <code>=SUM(A1:A5)</code> you’d get the total sum of all the 5 cells above.</p>
+<pre class="r"><code>library(excelR)
+
+df = head(iris)
+
+excelTable(df, minDimensions = c(ncol(df),nrow(df)+1)) </code></pre>
+<pre><code>## Warning in excelTable(df, minDimensions = c(ncol(df), nrow(df) + 1)): Since
+## both column title and colHeaders are not specified &#39;data&#39; column name will
+## be used as column headers</code></pre>
+<div id="htmlwidget-2" style="width:0px;height:0px;" class="jexcel html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"data":[[5.1,3.5,1.4,0.2,"setosa"],[4.9,3,1.4,0.2,"setosa"],[4.7,3.2,1.3,0.2,"setosa"],[4.6,3.1,1.5,0.2,"setosa"],[5,3.6,1.4,0.2,"setosa"],[5.4,3.9,1.7,0.4,"setosa"]],"colHeaders":["Sepal.Length","Sepal.Width","Petal.Length","Petal.Width","Species"],"minDimensions":[5,7],"columnSorting":true,"columnDrag":false,"columnResize":true,"rowResize":false,"rowDrag":true,"editable":true,"allowInsertRow":true,"allowInsertColumn":true,"allowDeleteRow":true,"allowDeleteColumn":true,"allowRenameColumn":true,"allowComments":false,"wordWrap":false,"selectionCopy":true,"search":false,"fullscreen":false,"lazyLoading":false,"loadingSpin":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="dropdown-column" class="section level3">
+<h3>Dropdown Column</h3>
+<p>In this example, We’d see how to create the table with a column that offers Dropdowns. This is primarily done with the paramater <code>source</code> while building the <code>data.frame</code> of <code>columns</code>.</p>
+<pre class="r"><code>library(excelR)
+
+ data = data.frame( Country = c(&#39;India&#39;, &#39;India&#39;, &#39;US&#39;,&#39;US&#39;), 
+          City = c(&#39;Bangalore&#39;, &#39;Mumbai&#39;, &#39;NY&#39;, &#39;SA&#39;))
+
+ columns = data.frame(title=c(&#39;Country&#39;, &#39;City&#39;),
+                      width= c(300, 300),
+                      type=c(&#39;text&#39;, &#39;dropdown&#39;),
+                      source=I(list(0,c(&#39;Bangalore&#39;, &#39;Mumbai&#39;, &#39;NY&#39;, &#39;SA&#39;,&#39;Delhi&#39;,&#39;Washington&#39;))))
+ excelTable(data=data, columns = columns)</code></pre>
+<div id="htmlwidget-3" style="width:0px;height:0px;" class="jexcel html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"data":[["India","Bangalore"],["India","Mumbai"],["US","NY"],["US","SA"]],"columns":[{"title":"Country","width":300,"type":"text","source":[0]},{"title":"City","width":300,"type":"dropdown","source":["Bangalore","Mumbai","NY","SA","Delhi","Washington"]}],"columnSorting":true,"columnDrag":false,"columnResize":true,"rowResize":false,"rowDrag":true,"editable":true,"allowInsertRow":true,"allowInsertColumn":true,"allowDeleteRow":true,"allowDeleteColumn":true,"allowRenameColumn":true,"allowComments":false,"wordWrap":false,"selectionCopy":true,"search":false,"fullscreen":false,"lazyLoading":false,"loadingSpin":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="more-features" class="section level3">
+<h3>More Features</h3>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p><code>excelR</code> is one of those R packages which may not seem to be holding Data Science use-cases right off the box, but can become quite handy as we start exploring new ideas and implement them due the nature of the package’s flexibility and customizations it offers. Nevertheless, <code>excelR</code> will be very valuable while designing UI interfaces with <code>shiny</code> or in fact,for a more interactive <code>RMarkdown</code> document / report. Check out excelR’s own exhaustive <a href="https://swechhya.github.io/excelR/">documentation here</a>.</p>
+</div>

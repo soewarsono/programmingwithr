@@ -1,0 +1,81 @@
+---
+title: How to embed Excel-like Spreadsheet Table in RMarkdown
+author: AbdulMajedRaja
+date: '2019-07-30'
+slug: how-to-embed-excel-like-spreadsheet-table-in-rmarkdown
+categories:
+  - How-To
+  - RMarkdown
+tags:
+  - javascript
+  - excel
+  - spreadsheet
+description: 'using excelR library in R'
+topics: []
+---
+
+If there's a component that's least interactive in an RMarkdown rendered document or a Shiny app - that'd be the Table that's displayed. Yes, `datatable` does a good job of improving the Table Apperance and custom formatting like Conditional Formatting, it doesn't give a Google Spreadsheet or Microsoft Excel flavor. This post is to let you know how you can embed that excel-like spreadsheet Table in your Rmarkdown. 
+
+### excelR - Intro
+
+The package that's going to help in this endeavor is [`excelR`](https://github.com/Swechhya/excelR) by **Swechhya Bista**. This is an R interface to '[jExcel](https://bossanova.uk/jexcel/v3/)' library to create web-based interactive tables and spreadsheets compatible with 'Excel' or any other spreadsheet software.
+
+### excelR - Installation
+
+The stable version of `excelR` can be installed from CRAN:
+
+```{r eval=FALSE}
+install.packages('excelR')
+```
+or, the latest development version from Github:
+
+```{r eval=FALSE}
+devtools::install_github('Swechhya/excelR')
+```
+
+### excelR - Loading and Basic Example
+
+```{r warning=FALSE, message=FALSE}
+
+library(excelR)
+
+excelTable(head(iris)) 
+```
+
+### Excel Formulas
+
+`excelR` helps you create spreadsheet tables that support Basic Excel Forumulas. 
+In the table below, 1st Column 6th Row (A6) if you enter `=SUM(A1:A5)` you'd get the total sum of all the 5 cells above. 
+
+```{r}
+library(excelR)
+
+df = head(iris)
+
+excelTable(df, minDimensions = c(ncol(df),nrow(df)+1)) 
+```
+
+### Dropdown Column
+
+In this example, We'd see how to create the table with a column that offers Dropdowns. This is primarily done with the paramater `source` while building the `data.frame` of `columns`.
+
+```{r}
+library(excelR)
+
+ data = data.frame( Country = c('India', 'India', 'US','US'), 
+          City = c('Bangalore', 'Mumbai', 'NY', 'SA'))
+
+ columns = data.frame(title=c('Country', 'City'),
+                      width= c(300, 300),
+                      type=c('text', 'dropdown'),
+                      source=I(list(0,c('Bangalore', 'Mumbai', 'NY', 'SA','Delhi','Washington'))))
+ excelTable(data=data, columns = columns)
+```
+
+### More Features
+
+
+
+### Summary
+
+`excelR` is one of those R packages which may not seem to be holding Data Science use-cases right off the box, but can become quite handy as we start exploring new ideas and implement them due the nature of the package's flexibility and customizations it offers. Nevertheless, `excelR` will be very valuable while designing UI interfaces with `shiny` or in fact,for a more interactive `RMarkdown` document / report. Check out excelR's own exhaustive [documentation here](https://swechhya.github.io/excelR/). 
