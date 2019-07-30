@@ -74,7 +74,18 @@ library(excelR)
 
 ### More Features
 
+While the above two examples are used to explain the type of offerings that `excelR` provides, `excelR` is much more than those two: 
 
+- Insert and delete rows and columns.
+- Drag and drop columns
+- Resizable rows and columns
+- Merge rows and columns
+- Search
+- Pagination
+- Lazy loading
+- Native color picker
+- Data picker dropdown with autocomplete, multiple, and icons feature
+- Date picker
 
 ### Summary
 
