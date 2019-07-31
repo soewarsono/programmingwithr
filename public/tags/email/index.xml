@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>email on Programming with R</title>
+    <link>/tags/email/</link>
+    <description>Recent content in email on Programming with R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
+    <lastBuildDate>Wed, 31 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/email/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Find out Bulk Email ID Reputations Risk using R</title>
+      <link>/find-out-bulk-email-id-reputations-risk-using-r/</link>
+      <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/find-out-bulk-email-id-reputations-risk-using-r/</guid>
+      <description>If you are working in Info Sec / Cyber Security, One of the things that might be part of your day job is to filter email to remove spams / phishing emails. While this could be done at several levels and ways, monitoring the email id (like abc@xyz.com) and validating its reputation to see if it seems risky / suspicious or authentic and then allowing them to reach the user inbox - is one of the solid ways (while it’s also error-prone with False Positives).</description>
+    </item>
+    
+  </channel>
+</rss>

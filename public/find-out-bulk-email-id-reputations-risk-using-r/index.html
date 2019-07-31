@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="using emailrep which is an R-binding for EmailRep API">
+  <meta name="generator" content="Hugo 0.56.1" />
+
+  <title>Find out Bulk Email ID Reputations Risk using R &middot; Programming with R</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">Learn R</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/amrrs/" rel="me" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/amrrs" rel="me" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. AbdulMajedRaja - All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Find out Bulk Email ID Reputations Risk using R</h1>
+  <h2>using emailrep which is an R-binding for EmailRep API</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>31 Jul 2019</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/r-packages">R Packages</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/email">email</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/infosec">infosec</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/cyber-security">cyber security</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p>If you are working in Info Sec / Cyber Security, One of the things that might be part of your day job is to filter email to remove spams / phishing emails. While this could be done at several levels and ways, monitoring the email id (like <code>abc@xyz.com</code>) and validating its reputation to see if it seems risky / suspicious or authentic and then allowing them to reach the user inbox - is one of the solid ways (while it’s also error-prone with False Positives). In this post, We’ll see how to check the reputation of Email Address in your R code.</p>
+<div id="emailrep---intro" class="section level3">
+<h3>emailrep - Intro</h3>
+<p>The package that’s going to help us in checking the reputation of Email ID is <a href="https://github.com/hrbrmstr/emailrep"><code>emailrep</code></a> by <a href="https://github.com/hrbrmstr"><strong>Bob Rudis</strong></a>. <code>emailrep</code> is an R-binding for the <code>EmailRep</code> API provided by the service <a href="https://emailrep.io/">emailrep.io</a></p>
+</div>
+<div id="emailrep.io-reputation---what-does-it-mean" class="section level3">
+<h3>emailrep.io Reputation - What does it mean?</h3>
+<p>Before we move on to the code section, It’s important to understand what does the reputation mean? It simply means the email hasn’t been seen anywhere trustworthy on the internet with the assumption that Trustworthy email addresses have a history and record across multiple sources on the web.</p>
+</div>
+<div id="emailrep---installation" class="section level3">
+<h3>emailrep - Installation</h3>
+<p><code>emailrep</code> can be installed from Bob Rudis’ CINC (which ironically stands for <em>CINC Is Not CRAN)</em>).</p>
+<pre class="r"><code>install.packages(&quot;emailrep&quot;, repos = &quot;https://cinc.rud.is&quot;)</code></pre>
+<p>or from multiple other online repos from various Git services</p>
+<pre class="r"><code>remotes::install_git(&quot;https://git.rud.is/hrbrmstr/emailrep.git&quot;)
+# or
+remotes::install_git(&quot;https://git.sr.ht/~hrbrmstr/emailrep&quot;)
+# or
+remotes::install_gitlab(&quot;hrbrmstr/emailrep&quot;)
+# or
+remotes::install_bitbucket(&quot;hrbrmstr/emailrep&quot;)
+# or
+remotes::install_github(&quot;hrbrmstr/emailrep&quot;)</code></pre>
+</div>
+<div id="emailrep---loading-and-basic-example" class="section level3">
+<h3>emailrep - Loading and Basic Example</h3>
+<p>Once installed, <code>emailrep</code> can be loaded like any other R package:</p>
+<pre class="r"><code>library(emailrep)</code></pre>
+<p><code>emailrep</code> is quite simple in its structure with one function <code>email_rep()</code> doing the job for us. Let’s try to find out the reputation of email id - <em><a href="mailto:tim@apple.com" class="email">tim@apple.com</a></em></p>
+<pre class="r"><code>email_rep(&quot;tim@apple.com&quot;)</code></pre>
+<pre><code>## $email
+## [1] &quot;tim@apple.com&quot;
+## 
+## $reputation
+## [1] &quot;high&quot;
+## 
+## $suspicious
+## [1] FALSE
+## 
+## $references
+## [1] 23
+## 
+## $details
+## $details$blacklisted
+## [1] FALSE
+## 
+## $details$malicious_activity
+## [1] FALSE
+## 
+## $details$malicious_activity_recent
+## [1] FALSE
+## 
+## $details$credentials_leaked
+## [1] TRUE
+## 
+## $details$credentials_leaked_recent
+## [1] FALSE
+## 
+## $details$data_breach
+## [1] TRUE
+## 
+## $details$last_seen
+## [1] &quot;02/25/2019&quot;
+## 
+## $details$domain_exists
+## [1] TRUE
+## 
+## $details$domain_reputation
+## [1] &quot;high&quot;
+## 
+## $details$new_domain
+## [1] FALSE
+## 
+## $details$days_since_domain_creation
+## [1] 11850
+## 
+## $details$suspicious_tld
+## [1] FALSE
+## 
+## $details$spam
+## [1] FALSE
+## 
+## $details$free_provider
+## [1] FALSE
+## 
+## $details$disposable
+## [1] FALSE
+## 
+## $details$deliverable
+## [1] FALSE
+## 
+## $details$accept_all
+## [1] FALSE
+## 
+## $details$valid_mx
+## [1] FALSE
+## 
+## $details$spoofable
+## [1] FALSE
+## 
+## $details$spf_strict
+## [1] TRUE
+## 
+## $details$dmarc_enforced
+## [1] TRUE
+## 
+## $details$profiles
+##  [1] &quot;spotify&quot;   &quot;pinterest&quot; &quot;vimeo&quot;     &quot;twitter&quot;   &quot;aboutme&quot;  
+##  [6] &quot;github&quot;    &quot;instagram&quot; &quot;facebook&quot;  &quot;angellist&quot; &quot;linkedin&quot;</code></pre>
+<p>As we can see above, the function returns a list with a lot of different basic attributes like <code>reputation</code> and <code>suspicious</code>. It also returns some interesting attributes like <code>data_breach</code> - whether the email id was part of some data leak and <code>profiles</code> - the places / profiles on internet where the email id has appeared.</p>
+</div>
+<div id="emailrep---use-case-multiple-ids" class="section level3">
+<h3>emailrep - use-case: Multiple IDs</h3>
+<p>As a Data Scientist, It’d be rare that you are dealing with single email ID for which the reputation could be simply found online. Our programming skills would play well when we’ve got to do this for a bulk of email ids.</p>
+<p>Let’s try to find out if reptuation of about 3 IDs together and assigning the output in a dataframe so that it could be used for any further purpose like visualization.</p>
+<pre class="r"><code># list of email ids
+
+email_ids &lt;- c(&quot;info@jabberbomb.com&quot;, 
+               &quot;bensonjoyce39@gmail.com&quot;,
+               &quot;channing@indiehackers.com&quot;)</code></pre>
+<p>We’ll use <code>purrr</code> for a bit of functional programming (with <code>map()</code>)</p>
+<pre class="r"><code>library(purrr)
+library(magrittr)
+
+result_df &lt;- map(email_ids, email_rep) %&gt;%
+  map_df(., magrittr::extract, c(&quot;email&quot;,&quot;reputation&quot;,&quot;suspicious&quot;))
+
+result_df</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   email                     reputation suspicious
+##   &lt;chr&gt;                     &lt;chr&gt;      &lt;lgl&gt;     
+## 1 info@jabberbomb.com       medium     TRUE      
+## 2 bensonjoyce39@gmail.com   none       TRUE      
+## 3 channing@indiehackers.com high       FALSE</code></pre>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>Thus, we learnt how to use <code>emailrep</code> to bulk identify reptuation and other such risk attributes of email ids. This should help in Data Security, Validating email for Email Marketing and in Salesforce Automation and many other instances depending upon your area of business.</p>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+<ul>
+<li><a href="https://github.com/hrbrmstr/emailrep">emailrep - R Package by Bob Rudis</a></li>
+<li><a href="https://emailrep.io/">emailrepo.io</a></li>
+<li><a href="https://emailrep.io/docs/">emailrepo.io Docs</a></li>
+</ul>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/">How to embed Excel-like Spreadsheet Table in RMarkdown</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'amrrs';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+<script src="/js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-144565273-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
+

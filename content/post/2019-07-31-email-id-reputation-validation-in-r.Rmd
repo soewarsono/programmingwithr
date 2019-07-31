@@ -1,0 +1,101 @@
+---
+title: Find out Bulk Email ID Reputations Risk using R
+author: AbdulMajedRaja
+date: '2019-07-31'
+slug: find-out-bulk-email-id-reputations-risk-using-R
+categories:
+  - How-To
+tags:
+  - R Packages
+  - email
+  - infosec
+  - cyber security
+description: 'using emailrep which is an R-binding for EmailRep API'
+topics: []
+---
+
+If you are working in Info Sec / Cyber Security, One of the things that might be part of your day job is to filter email to remove spams / phishing emails. While this could be done at several levels and ways, monitoring the email id (like `abc@xyz.com`) and validating its reputation to see if it seems risky / suspicious or authentic and then allowing them to reach the user inbox - is one of the solid ways (while it's also error-prone with False Positives). In this post, We'll see how to check the reputation of Email Address in your R code. 
+
+### emailrep - Intro
+
+The package that's going to help us in checking the reputation of Email ID is [`emailrep`](https://github.com/hrbrmstr/emailrep) by [**Bob Rudis**](https://github.com/hrbrmstr). `emailrep` is an R-binding for the `EmailRep` API provided by the service [emailrep.io](https://emailrep.io/)
+
+### emailrep.io Reputation - What does it mean?
+
+Before we move on to the code section, It's important to understand what does the reputation mean? It simply means the email hasn't been seen anywhere trustworthy on the internet with the assumption that Trustworthy email addresses have a history and record across multiple sources on the web. 
+
+### emailrep - Installation
+
+`emailrep` can be installed from Bob Rudis' CINC (which ironically stands for *CINC Is Not CRAN)*).
+
+```{r eval=FALSE}
+install.packages("emailrep", repos = "https://cinc.rud.is")
+```
+
+or from multiple other online repos from various Git services
+
+```{r eval=FALSE}
+remotes::install_git("https://git.rud.is/hrbrmstr/emailrep.git")
+# or
+remotes::install_git("https://git.sr.ht/~hrbrmstr/emailrep")
+# or
+remotes::install_gitlab("hrbrmstr/emailrep")
+# or
+remotes::install_bitbucket("hrbrmstr/emailrep")
+# or
+remotes::install_github("hrbrmstr/emailrep")
+```
+
+### emailrep - Loading and Basic Example
+
+Once installed, `emailrep` can be loaded like any other R package:
+
+```{r}
+library(emailrep)
+```
+
+`emailrep` is quite simple in its structure with one function `email_rep()` doing the job for us. Let's try to find out the reputation of email id - *tim@apple.com*
+
+```{r}
+email_rep("tim@apple.com")
+```
+
+As we can see above, the function returns a list with a lot of different basic attributes like `reputation` and `suspicious`. It also returns some interesting attributes like `data_breach` - whether the email id was part of some data leak and `profiles` - the places / profiles on internet where the email id has appeared. 
+
+### emailrep - use-case: Multiple IDs 
+
+As a Data Scientist, It'd be rare that you are dealing with single email ID for which the reputation could be simply found online. Our programming skills would play well when we've got to do this for a bulk of email ids. 
+
+Let's try to find out if reptuation of about 3 IDs together and assigning the output in a dataframe so that it could be used for any further purpose like visualization. 
+
+```{r}
+
+# list of email ids
+
+email_ids <- c("info@jabberbomb.com", 
+               "bensonjoyce39@gmail.com",
+               "channing@indiehackers.com")
+
+```
+
+We'll use `purrr` for a bit of functional programming (with `map()`)
+
+```{r warning=FALSE, message=FALSE}
+library(purrr)
+library(magrittr)
+
+result_df <- map(email_ids, email_rep) %>%
+  map_df(., magrittr::extract, c("email","reputation","suspicious"))
+
+result_df
+```
+
+### Summary
+
+Thus, we learnt how to use `emailrep` to bulk identify reptuation and other such risk attributes of email ids. This should help in Data Security, Validating email for Email Marketing and in Salesforce Automation and many other instances depending upon your area of business. 
+
+### References
+
++ [emailrep - R Package by Bob Rudis](https://github.com/hrbrmstr/emailrep)
++ [emailrepo.io](https://emailrep.io/)
++ [emailrepo.io Docs](https://emailrep.io/docs/)
