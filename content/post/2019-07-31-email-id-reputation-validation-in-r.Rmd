@@ -10,6 +10,7 @@ tags:
   - email
   - infosec
   - cyber security
+  - r-bloggers
 description: 'using emailrep which is an R-binding for EmailRep API'
 topics: []
 ---
