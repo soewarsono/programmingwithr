@@ -32,6 +32,11 @@
   </url>
   
   <url>
+    <loc>/r-blogs/</loc>
+    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/r-packages/</loc>
     <lastmod>2019-07-31T00:00:00+00:00</lastmod>
     <priority>0</priority>

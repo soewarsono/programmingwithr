@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>R Blogs</title>
+      <link>/r-blogs/</link>
+      <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/r-blogs/</guid>
+      <description> R-Bloggers  </description>
+    </item>
+    
+    <item>
       <title>How to embed Excel-like Spreadsheet Table in RMarkdown</title>
       <link>/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>

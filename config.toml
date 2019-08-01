@@ -51,7 +51,11 @@ paginate = 10
     pre = "<i class='fa fa-phone fa-fw'></i>"
     weight = 4
     url = "/contact/"
-
+  [[menu.main]]
+    name = "R-Blogs"
+    pre = "<i class='fa fa-location-arrow fa-fw'></i>"
+    weight = 5
+    url = "/r-blogs/"
 [social]
   # Link your social networking accouns to the side menu
   # by entering your username or ID.
