@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RMarkdown on Programming with R</title>
-    <link>/categories/rmarkdown/</link>
+    <link>https://www.programmingwithr.com/categories/rmarkdown/</link>
     <description>Recent content in RMarkdown on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.programmingwithr.com/categories/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to embed Excel-like Spreadsheet Table in RMarkdown</title>
-      <link>/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</link>
+      <link>https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</guid>
+      <guid>https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</guid>
       <description>If there’s a component that’s least interactive in an RMarkdown rendered document or a Shiny app - that’d be the Table that’s displayed. Yes, datatable does a good job of improving the Table Apperance and custom formatting like Conditional Formatting, it doesn’t give a Google Spreadsheet or Microsoft Excel flavor. This post is to let you know how you can embed that excel-like spreadsheet Table in your Rmarkdown.</description>
     </item>
     

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spreadsheet on Programming with R</title>
-    <link>https://www.programmingwithr.com/tags/spreadsheet/</link>
-    <description>Recent content in spreadsheet on Programming with R</description>
+    <title>reshape on Programming with R</title>
+    <link>https://www.programmingwithr.com/tags/reshape/</link>
+    <description>Recent content in reshape on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.programmingwithr.com/tags/spreadsheet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.programmingwithr.com/tags/reshape/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
       <description>Reshaping a dataframe / table from long to wide format or wide to long format is one of the daily tasks a Data Analyst / Data Scientist would be doing. The long format is similar to the tidy format that the tidyverse advocates. Even while, it’s been a very common task - the tidyr package’s solution of using spread() and gather() almost never was intuitive enough to be used in the code without SOing or Referring the documentation.</description>
-    </item>
-    
-    <item>
-      <title>How to embed Excel-like Spreadsheet Table in RMarkdown</title>
-      <link>https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</link>
-      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</guid>
-      <description>If there’s a component that’s least interactive in an RMarkdown rendered document or a Shiny app - that’d be the Table that’s displayed. Yes, datatable does a good job of improving the Table Apperance and custom formatting like Conditional Formatting, it doesn’t give a Google Spreadsheet or Microsoft Excel flavor. This post is to let you know how you can embed that excel-like spreadsheet Table in your Rmarkdown.</description>
     </item>
     
   </channel>

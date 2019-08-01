@@ -2,31 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>r-bloggers on Programming with R</title>
-    <link>/tags/r-bloggers/</link>
+    <link>https://www.programmingwithr.com/tags/r-bloggers/</link>
     <description>Recent content in r-bloggers on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Wed, 31 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/r-bloggers/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.programmingwithr.com/tags/r-bloggers/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>How to reshape a dataframe from wide to long or long to wide format</title>
+      <link>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
+      <description>Reshaping a dataframe / table from long to wide format or wide to long format is one of the daily tasks a Data Analyst / Data Scientist would be doing. The long format is similar to the tidy format that the tidyverse advocates. Even while, it’s been a very common task - the tidyr package’s solution of using spread() and gather() almost never was intuitive enough to be used in the code without SOing or Referring the documentation.</description>
+    </item>
+    
+    <item>
       <title>Find out Bulk Email ID Reputations Risk using R</title>
-      <link>/find-out-bulk-email-id-reputations-risk-using-r/</link>
+      <link>https://www.programmingwithr.com/find-out-bulk-email-id-reputations-risk-using-r/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/find-out-bulk-email-id-reputations-risk-using-r/</guid>
+      <guid>https://www.programmingwithr.com/find-out-bulk-email-id-reputations-risk-using-r/</guid>
       <description>If you are working in Info Sec / Cyber Security, One of the things that might be part of your day job is to filter email to remove spams / phishing emails. While this could be done at several levels and ways, monitoring the email id (like abc@xyz.com) and validating its reputation to see if it seems risky / suspicious or authentic and then allowing them to reach the user inbox - is one of the solid ways (while it’s also error-prone with False Positives).</description>
     </item>
     
     <item>
       <title>How to do negation-proof sentiment analysis in R</title>
-      <link>/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
+      <link>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
+      <guid>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
       <description>Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
 Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).</description>
     </item>

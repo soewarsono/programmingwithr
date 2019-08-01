@@ -3,140 +3,157 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://www.programmingwithr.com/categories/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/categories/data-analysis/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/categories/how-to/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/post/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/tags/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/tags/excel/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/tags/r-bloggers/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/tags/reshape/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/tags/spreadsheet/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/find-out-bulk-email-id-reputations-risk-using-r/</loc>
+    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/r-blogs/</loc>
+    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.programmingwithr.com/tags/r-packages/</loc>
     <lastmod>2019-07-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/find-out-bulk-email-id-reputations-risk-using-r/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/how-to/</loc>
+    <loc>https://www.programmingwithr.com/tags/cyber-security/</loc>
     <lastmod>2019-07-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/</loc>
+    <loc>https://www.programmingwithr.com/tags/email/</loc>
     <lastmod>2019-07-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://www.programmingwithr.com/tags/infosec/</loc>
     <lastmod>2019-07-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/r-blogs/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-packages/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/cyber-security/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/email/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/infosec/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-bloggers/</loc>
-    <lastmod>2019-07-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</loc>
+    <loc>https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</loc>
     <lastmod>2019-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/rmarkdown/</loc>
+    <loc>https://www.programmingwithr.com/categories/rmarkdown/</loc>
     <lastmod>2019-07-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/excel/</loc>
+    <loc>https://www.programmingwithr.com/tags/javascript/</loc>
     <lastmod>2019-07-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/javascript/</loc>
-    <lastmod>2019-07-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/spreadsheet/</loc>
-    <lastmod>2019-07-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/how-to-do-negation-proof-sentiment-analysis-in-r/</loc>
+    <loc>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</loc>
     <lastmod>2019-07-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/nlp/</loc>
+    <loc>https://www.programmingwithr.com/tags/nlp/</loc>
     <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/sentiment-analysis/</loc>
+    <loc>https://www.programmingwithr.com/tags/sentiment-analysis/</loc>
     <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/text/</loc>
+    <loc>https://www.programmingwithr.com/categories/text/</loc>
     <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/text-analytics/</loc>
+    <loc>https://www.programmingwithr.com/tags/text-analytics/</loc>
     <lastmod>2019-07-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/contact/</loc>
+    <loc>https://www.programmingwithr.com/contact/</loc>
     <lastmod>2019-06-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://www.programmingwithr.com/about/</loc>
     <lastmod>2019-06-26T00:00:00+00:00</lastmod>
   </url>
   

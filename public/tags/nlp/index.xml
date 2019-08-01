@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NLP on Programming with R</title>
-    <link>/tags/nlp/</link>
+    <link>https://www.programmingwithr.com/tags/nlp/</link>
     <description>Recent content in NLP on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.programmingwithr.com/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to do negation-proof sentiment analysis in R</title>
-      <link>/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
+      <link>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
+      <guid>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
       <description>Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
 Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).</description>
     </item>

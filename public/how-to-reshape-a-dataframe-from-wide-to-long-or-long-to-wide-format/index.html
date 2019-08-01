@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="using tidyr - pivot_longer() pivot_wider()">
+  <meta name="generator" content="Hugo 0.56.1" />
+
+  <title>How to reshape a dataframe from wide to long or long to wide format &middot; Programming with R</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.programmingwithr.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.programmingwithr.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.programmingwithr.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.programmingwithr.com/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.programmingwithr.com/">Learn R</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.programmingwithr.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.programmingwithr.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.programmingwithr.com/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.programmingwithr.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.programmingwithr.com/r-blogs/"><i class='fa fa-location-arrow fa-fw'></i>R-Blogs</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/amrrs/" rel="me" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/amrrs" rel="me" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. AbdulMajedRaja - All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>How to reshape a dataframe from wide to long or long to wide format</h1>
+  <h2>using tidyr - pivot_longer() pivot_wider()</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    
+    <i class="fa fa-user fa-fw"></i>
+    <span>AbdulMajedRaja RS</span>
+    
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Aug 2019</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/spreadsheet">spreadsheet</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/excel">excel</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/reshape">reshape</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/r-bloggers">r-bloggers</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p>Reshaping a dataframe / table from long to wide format or wide to long format is one of the daily tasks a Data Analyst / Data Scientist would be doing. The long format is similar to the <code>tidy</code> format that the <code>tidyverse</code> advocates. Even while, it’s been a very common task - the <code>tidyr</code> package’s solution of using <code>spread()</code> and <code>gather()</code> almost never was intuitive enough to be used in the code without SOing or Referring the documentation. While I used to think, It’s just me who didn’t <code>spread</code> and <code>gather</code>, It seemed to be mass problem when the package developer <strong>Hadley Wickham</strong> realized this to completely rewrite those functions into two new functions <code>pivot_wider()</code> and <code>pivot_longer()</code> (which is also equivalent to <code>melt()</code> and <code>cast()</code> - or simply <code>unpivot</code> and <code>pivot</code>)</p>
+<div id="update-your-tidyr" class="section level3">
+<h3>update your <code>tidyr</code></h3>
+<p>If you are an R-user, It’s highly likely that you’ve got <code>tidyr</code> either as a standalone package or part of the <code>tidyverse</code> packages. Please update the package the get the latest <code>tidyr</code> to get these functions for reshaping.</p>
+<pre class="r"><code>install.packages(&quot;tidyr&quot;) 
+
+or
+
+devtools::install_github(&quot;tidyverse/tidyr&quot;)</code></pre>
+<p>and load the library.</p>
+<pre class="r"><code>library(tidyr)
+
+packageVersion(&quot;tidyr&quot;)</code></pre>
+<pre><code>## [1] &#39;0.8.3.9000&#39;</code></pre>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>Let’s take this problem from a very popular <a href="https://stackoverflow.com/questions/2185252/reshaping-data-frame-from-wide-to-long-format">Stack Overflow Question</a>.</p>
+<pre class="r"><code>#data
+df &lt;- read.table(textConnection(
+&quot;Code Country        1950    1951    1952    1953    1954
+AFG  Afghanistan    20249  19000  22532  5000  24555
+ALB  Albania        8097   8986   3000  11123  12246&quot;), header=TRUE)
+
+df</code></pre>
+<pre><code>##   Code     Country X1950 X1951 X1952 X1953 X1954
+## 1  AFG Afghanistan 20249 19000 22532  5000 24555
+## 2  ALB     Albania  8097  8986  3000 11123 12246</code></pre>
+<p>This wide format is good for some use-cases but for most of what we do with Data Analysis, it’d require the data to be in the long format.</p>
+</div>
+<div id="why-reshaping---the-problem" class="section level3">
+<h3>Why Reshaping - The Problem</h3>
+<p>Given this data, Let’s try to make a Time-series Line Chart using <code>ggplot2</code>. But the format in which the data is currently shaped (wide) can’t help us in building the line chart because for a line chart using <code>geom_line()</code> we need the data in the long format - where the x-axis and y-axis are columns (ideally with x being a Time variable and y being a continuous variable) and also that we’ve got the country which could help us comparing both the countries.</p>
+<p>Let’s do that!</p>
+<pre class="r"><code>library(tidyverse)
+
+df_pivoted &lt;- pivot_longer(df, cols = -c(&quot;Code&quot;,&quot;Country&quot;), names_to = &quot;year&quot;)
+
+df_pivoted</code></pre>
+<pre><code>## # A tibble: 10 x 4
+##    Code  Country     year  value
+##    &lt;fct&gt; &lt;fct&gt;       &lt;chr&gt; &lt;int&gt;
+##  1 AFG   Afghanistan X1950 20249
+##  2 AFG   Afghanistan X1951 19000
+##  3 AFG   Afghanistan X1952 22532
+##  4 AFG   Afghanistan X1953  5000
+##  5 AFG   Afghanistan X1954 24555
+##  6 ALB   Albania     X1950  8097
+##  7 ALB   Albania     X1951  8986
+##  8 ALB   Albania     X1952  3000
+##  9 ALB   Albania     X1953 11123
+## 10 ALB   Albania     X1954 12246</code></pre>
+<p>I’m personally glad that I don’t have to check the confusing syntax of <code>gather()</code> instead the intuitve name of <code>pivot_longer()</code> (which is literally what we’ve to do) flows through my fingers.</p>
+<p>As you can see above, the <code>pivot_longer()</code> function as any tidyverse function supports <code>%&gt;%</code> which also means the first argument is the dataframe itself, then the list of <code>cols</code> we would like to <code>pivot_longer()</code> and the next essential argument <code>names_to</code> - new column name under whcih these are rolled up. This gives us the reshaped data which we could use for plotting. If you came to this article, just to see reshaping, you’re good by this place. But if you want to connect better with the reason why we wanted to reshape in the first place, Let’s go do the line graph!</p>
+</div>
+<div id="line-graph-with-reshaped-data" class="section level3">
+<h3>Line Graph with reshaped data</h3>
+<p>Now that we know how to reshape the data (from wide to long format), we can use <code>ggplot2</code>’s <code>geom_line()</code> to plot the (time-series) lines.</p>
+<pre class="r"><code>df %&gt;% 
+  pivot_longer(-c(&quot;Code&quot;,&quot;Country&quot;),&quot;year&quot;) %&gt;% 
+  mutate(year = as.integer(str_replace(year, &quot;X&quot;,&quot;&quot;))) %&gt;% 
+  ggplot() + geom_line(aes(year, value, group = Country, color = Country)) +
+  labs(title =  &quot;Line Graph after Reshaping&quot;,
+       subtitle = &quot;I love pivot_longer()&quot;,
+       caption = &quot;I was always confused with gather and spread&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="https://www.programmingwithr.com/post/2019-08-01-how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>In the above code, I’ve repeated the reshaping again - just to imply a point that this is why <code>%&gt;%</code>s are cool because we can build intuitive ETL (kind-of) pipeline and visualization together step-by-step.</p>
+</div>
+<div id="the-end" class="section level3">
+<h3>The End</h3>
+<p>Well, We finally ended up with a beautiful (opinionated) line graph to compare two countries’ (made-up values) which came from a wide format data originally which we reshaped to long format data.</p>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+<ul>
+<li><a href="https://stackoverflow.com/a/57013551/5086335">how to reshape data from long to wide - SO</a></li>
+<li><a href="https://github.com/tidyverse/tidyr">tidyr - Github</a></li>
+<li><a href="https://twitter.com/hadleywickham/status/999348604887293952">Hadley’s Tweet on spread/gather</a></li>
+</ul>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.programmingwithr.com/find-out-bulk-email-id-reputations-risk-using-r/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.programmingwithr.com/find-out-bulk-email-id-reputations-risk-using-r/">Find out Bulk Email ID Reputations Risk using R</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'amrrs';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.programmingwithr.com/js/ui.js"></script>
+<script src="https://www.programmingwithr.com/js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-144565273-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
+
