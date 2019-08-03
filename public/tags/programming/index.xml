@@ -71,17 +71,17 @@ top_20() %&amp;gt;%
   mutate(Change = as.numeric(gsub(&amp;#39;%&amp;#39;,&amp;#39;&amp;#39;,Change))) %&amp;gt;% 
   ggplot(aes(x = reorder(`Programming Language`,Change), y = Change, 
              fill = `Programming Language`,
-             label = paste0(Change, &amp;quot;%&amp;quot;))) + 
-  geom_col() +
+             label = paste0(Change, &amp;quot;%&amp;quot;))) +
+  geom_col(show.legend = FALSE) +
   coord_flip() +
   geom_text(nudge_x = 0.1) +
   xlab(&amp;#39;Programming Language&amp;#39;) +
-  ggtitle(&amp;#39;Programming Languages Change this Month&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+  ggtitle(&amp;#39;Programming Languages Change this Month&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2019-08-03-programmatically-extract-tiobe-index-ratings_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;summmary&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Summmary&lt;/h3&gt;
-&lt;p&gt;Hence, we learnt how to use &lt;code&gt;tiobeindexr&lt;/code&gt; to programmatically download &lt;code&gt;TIOBE Index&lt;/code&gt; and visualize insights from it.&lt;/p&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;Hence, we learnt how to use &lt;code&gt;tiobeindexr&lt;/code&gt; to programmatically download &lt;code&gt;TIOBE Index&lt;/code&gt; and visualize insights from it. And, alongisde we also learnt that TIOBE Index in fact isn’t a fair represenation of the popularity of programming languages&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;references&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;References&lt;/h3&gt;

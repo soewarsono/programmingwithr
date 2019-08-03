@@ -56,17 +56,17 @@ top_20() %>%
   mutate(Change = as.numeric(gsub('%','',Change))) %>% 
   ggplot(aes(x = reorder(`Programming Language`,Change), y = Change, 
              fill = `Programming Language`,
-             label = paste0(Change, "%"))) + 
-  geom_col() +
+             label = paste0(Change, "%"))) +
+  geom_col(show.legend = FALSE) +
   coord_flip() +
   geom_text(nudge_x = 0.1) +
   xlab('Programming Language') +
-  ggtitle('Programming Languages Change this Month')
+  ggtitle('Programming Languages Change this Month') 
 ```
 
-### Summmary
+### Summary
 
-Hence, we learnt how to use `tiobeindexr` to programmatically download `TIOBE Index` and visualize insights from it. 
+Hence, we learnt how to use `tiobeindexr` to programmatically download `TIOBE Index` and visualize insights from it. And, alongisde we also learnt that TIOBE Index in fact isn't a fair represenation of the popularity of programming languages
 
 ### References 
 
