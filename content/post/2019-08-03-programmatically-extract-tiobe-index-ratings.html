@@ -1,0 +1,84 @@
+---
+title: Programmatically extract TIOBE Index Ratings
+author: AbdulMajedRaja RS
+date: '2019-08-03'
+slug: programmatically-extract-tiobe-index-ratings
+categories: 
+  - How-To
+tags:
+  - r-bloggers
+  - tiobe
+  - programming
+description: 'using tiobeindexr R package'
+topics: []
+---
+
+
+
+<p><strong>TIOBE Index</strong> is an index (ranking) that claims to represent the popularity of programming languages. <a href="https://yihui.name/en/about/">Yihui</a> (The creator of <code>blogdown</code> package), recently wrote a blogpost titled “<a href="https://yihui.name/en/2019/06/tiobe-index/">On TIOBE Index and the era of decision fatigue</a>” and I strongly recommend you to go through that before continuing with this post.</p>
+<p>So the <strong>Disclaimer</strong> goes like this: <em>This post/author doesn’t believe that TIOBE Index is a fair way to measure/present popularity of programming languages and this is writtet just to teach you how to extract/get TIOBE Index programmatically using the R package <code>tiobeindexr</code> </em></p>
+<div id="tiobeindexr---intro-installation-loading" class="section level3">
+<h3>tiobeindexr - Intro, Installation &amp; Loading</h3>
+<p><code>tiobeindexr</code> is an R package to extract TIOBE Index of the given month.</p>
+<p><code>tiobeindexr</code> is available on CRAN so you can install like below:</p>
+<pre class="r"><code>install.packages(&quot;tiobeindexr&quot;)</code></pre>
+<p>Once installed, it can be loaded like any other R package:</p>
+<pre class="r"><code>library(tiobeindexr)</code></pre>
+<pre><code>## Downloading TIOBE Index Data using your Internet...</code></pre>
+<p>When <code>tiobeindexr</code> is loaded for the first time in the given session, it downloads the required data from the internet.</p>
+</div>
+<div id="extract-top-20-programming-languages-of-the-month" class="section level3">
+<h3>Extract top 20 programming languages of the month</h3>
+<p>TIOBE Index publishes the rank of programming languages every month (monthly-refresh). We can use the function <code>top_20()</code> to extract the top 20 programming languages of the month (that TIOBE has published)</p>
+<pre class="r"><code>top_20()</code></pre>
+<pre><code>##    Jul 2019 Jul 2018 Programming Language Ratings Change
+## 1         1        1                 Java 15.058% -1.08%
+## 2         2        2                    C 14.211% -0.45%
+## 3         3        4               Python  9.260% +2.90%
+## 4         4        3                  C++  6.705% -0.91%
+## 5         5        6                   C#  4.365% +0.57%
+## 6         6        5    Visual Basic .NET  4.208% -0.04%
+## 7         7        8           JavaScript  2.304% -0.53%
+## 8         8        7                  PHP  2.167% -0.67%
+## 9         9        9                  SQL  1.977% -0.36%
+## 10       10       10          Objective-C  1.686% +0.23%
+## 11       11       12                 Ruby  1.636% +0.43%
+## 12       12       13    Assembly language  1.390% +0.24%
+## 13       13       11                Swift  1.121% -0.29%
+## 14       14       15               MATLAB  1.078% -0.05%
+## 15       15       81               Groovy  1.070% +0.96%
+## 16       16       18                   Go  1.016% +0.05%
+## 17       17       19         Visual Basic  1.009% +0.12%
+## 18       18       16 Delphi/Object Pascal  0.950% -0.16%
+## 19       19       17                 Perl  0.918% -0.18%
+## 20       20       14                    R  0.837% -0.31%</code></pre>
+</div>
+<div id="visualising-top-changes-of-tiobe-index-this-month-vs-previous-month" class="section level3">
+<h3>Visualising Top Changes of TIOBE Index This Month vs Previous Month</h3>
+<p>As you can see in the output of the previous section, <code>top_20()</code> also gives us the % change MoM (Month-over-Month) which we can use to see the top changes.</p>
+<p>For simplicity, We’ll load the entire <code>tidyverse</code> package and use <code>ggplot2</code>’s bar-plot to visualize the changes.</p>
+<pre class="r"><code>library(tidyverse)
+
+top_20() %&gt;% 
+  mutate(Change = as.numeric(gsub(&#39;%&#39;,&#39;&#39;,Change))) %&gt;% 
+  ggplot(aes(x = reorder(`Programming Language`,Change), y = Change, 
+             fill = `Programming Language`,
+             label = paste0(Change, &quot;%&quot;))) + 
+  geom_col() +
+  coord_flip() +
+  geom_text(nudge_x = 0.1) +
+  xlab(&#39;Programming Language&#39;) +
+  ggtitle(&#39;Programming Languages Change this Month&#39;)</code></pre>
+<p><img src="/post/2019-08-03-programmatically-extract-tiobe-index-ratings_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="summmary" class="section level3">
+<h3>Summmary</h3>
+<p>Hence, we learnt how to use <code>tiobeindexr</code> to programmatically download <code>TIOBE Index</code> and visualize insights from it.</p>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+<ul>
+<li><a href="https://github.com/amrrs/tiobeindexr">tiobeindexr - Github</a></li>
+<li><a href="https://www.tiobe.com/tiobe-index/">TIOBE Index - Official Page</a></li>
+</ul>
+</div>

@@ -1,0 +1,74 @@
+---
+title: Programmatically extract TIOBE Index Ratings
+author: AbdulMajedRaja RS
+date: '2019-08-03'
+slug: programmatically-extract-tiobe-index-ratings
+categories: 
+  - How-To
+tags:
+  - r-bloggers
+  - tiobe
+  - programming
+description: 'using tiobeindexr R package'
+topics: []
+---
+
+**TIOBE Index** is an index (ranking) that claims to represent the popularity of programming languages. [Yihui](https://yihui.name/en/about/) (The creator of `blogdown` package), recently wrote a blogpost titled "[On TIOBE Index and the era of decision fatigue](https://yihui.name/en/2019/06/tiobe-index/)" and I strongly recommend you to go through that before continuing with this post. 
+
+So the **Disclaimer** goes like this: *This post/author doesn't believe that TIOBE Index is a fair way to measure/present popularity of programming languages and this is writtet just to teach you how to extract/get TIOBE Index programmatically using the R package `tiobeindexr` *
+
+### tiobeindexr - Intro, Installation & Loading
+
+`tiobeindexr` is an R package to extract TIOBE Index of the given month. 
+
+`tiobeindexr` is available on CRAN so you can install like below:
+
+```{r eval=FALSE}
+install.packages("tiobeindexr")
+```
+
+Once installed, it can be loaded like any other R package:
+
+```{r}
+library(tiobeindexr)
+```
+
+When `tiobeindexr` is loaded for the first time in the given session, it downloads the required data from the internet. 
+
+### Extract top 20 programming languages of the month 
+
+TIOBE Index publishes the rank of programming languages every month (monthly-refresh). We can use the function `top_20()` to extract the top 20 programming languages of the month (that TIOBE has published)
+
+```{r}
+top_20()
+```
+
+### Visualising Top Changes of TIOBE Index This Month vs Previous Month
+
+As you can see in the output of the previous section, `top_20()` also gives us the % change MoM (Month-over-Month) which we can use to see the top changes. 
+
+For simplicity, We'll load the entire `tidyverse` package and use `ggplot2`'s bar-plot to visualize the changes. 
+
+```{r warning=FALSE, message=FALSE}
+library(tidyverse)
+
+top_20() %>% 
+  mutate(Change = as.numeric(gsub('%','',Change))) %>% 
+  ggplot(aes(x = reorder(`Programming Language`,Change), y = Change, 
+             fill = `Programming Language`,
+             label = paste0(Change, "%"))) + 
+  geom_col() +
+  coord_flip() +
+  geom_text(nudge_x = 0.1) +
+  xlab('Programming Language') +
+  ggtitle('Programming Languages Change this Month')
+```
+
+### Summmary
+
+Hence, we learnt how to use `tiobeindexr` to programmatically download `TIOBE Index` and visualize insights from it. 
+
+### References 
+
++ [tiobeindexr - Github](https://github.com/amrrs/tiobeindexr)
++ [TIOBE Index - Official Page](https://www.tiobe.com/tiobe-index/)

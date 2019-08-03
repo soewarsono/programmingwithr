@@ -8,10 +8,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>programming</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/programming/</link>
+      <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>r-bloggers</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/r-bloggers/</link>
+      <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-bloggers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tiobe</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/tiobe/</link>
+      <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tiobe/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>excel</title>
@@ -20,16 +50,6 @@
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/excel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>r-bloggers</title>
-      <author>AbdulMajedRaja RS</author>
-      <link>/tags/r-bloggers/</link>
-      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     
