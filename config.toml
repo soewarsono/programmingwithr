@@ -3,11 +3,14 @@ baseurl = "https://www.programmingwithr.com/"
 languageCode = "en-us"
 title = "Programming with R"
 theme = "blackburn"
-author = "AbdulMajedRaja RS"
+#author = "AbdulMajedRaja RS"
 copyright = "&copy; 2019. AbdulMajedRaja - All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 canonifyurls = true
 paginate = 4
+
+[author]
+    name = "AbdulMajedRaja RS"
 
 [permalinks]
   post = "/:slug/"

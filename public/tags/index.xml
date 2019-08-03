@@ -1,123 +1,135 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <author></author>
+    <author>AbdulMajedRaja RS</author>
     <title>Tags on Programming with R</title>
-    <link>https://www.programmingwithr.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://www.programmingwithr.com/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>excel</title>
-      <link>https://www.programmingwithr.com/tags/excel/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/excel/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/excel/</guid>
+      <guid>/tags/excel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>r-bloggers</title>
-      <link>https://www.programmingwithr.com/tags/r-bloggers/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/r-bloggers/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/r-bloggers/</guid>
+      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>reshape</title>
-      <link>https://www.programmingwithr.com/tags/reshape/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/reshape/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/reshape/</guid>
+      <guid>/tags/reshape/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spreadsheet</title>
-      <link>https://www.programmingwithr.com/tags/spreadsheet/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/spreadsheet/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/spreadsheet/</guid>
+      <guid>/tags/spreadsheet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Packages</title>
-      <link>https://www.programmingwithr.com/tags/r-packages/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/r-packages/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/r-packages/</guid>
+      <guid>/tags/r-packages/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cyber security</title>
-      <link>https://www.programmingwithr.com/tags/cyber-security/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/cyber-security/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/cyber-security/</guid>
+      <guid>/tags/cyber-security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>email</title>
-      <link>https://www.programmingwithr.com/tags/email/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/email/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/email/</guid>
+      <guid>/tags/email/</guid>
       <description></description>
     </item>
     
     <item>
       <title>infosec</title>
-      <link>https://www.programmingwithr.com/tags/infosec/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/infosec/</link>
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/infosec/</guid>
+      <guid>/tags/infosec/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>https://www.programmingwithr.com/tags/javascript/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/javascript/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/javascript/</guid>
+      <guid>/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
-      <link>https://www.programmingwithr.com/tags/nlp/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/nlp/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/nlp/</guid>
+      <guid>/tags/nlp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sentiment Analysis</title>
-      <link>https://www.programmingwithr.com/tags/sentiment-analysis/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/sentiment-analysis/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/sentiment-analysis/</guid>
+      <guid>/tags/sentiment-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Text Analytics</title>
-      <link>https://www.programmingwithr.com/tags/text-analytics/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/text-analytics/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/tags/text-analytics/</guid>
+      <guid>/tags/text-analytics/</guid>
       <description></description>
     </item>
     

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <author></author>
+    <author>AbdulMajedRaja RS</author>
     <title>Sentiment Analysis on Programming with R</title>
-    <link>https://www.programmingwithr.com/tags/sentiment-analysis/</link>
+    <link>/tags/sentiment-analysis/</link>
     <description>Recent content in Sentiment Analysis on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://www.programmingwithr.com/tags/sentiment-analysis/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/sentiment-analysis/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to do negation-proof sentiment analysis in R</title>
-      <link>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/how-to-do-negation-proof-sentiment-analysis-in-r/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
+      <guid>/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
       <description>
 
 

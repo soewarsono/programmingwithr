@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <author></author>
+    <author>AbdulMajedRaja RS</author>
     <title>Data Analysis on Programming with R</title>
-    <link>https://www.programmingwithr.com/categories/data-analysis/</link>
+    <link>/categories/data-analysis/</link>
     <description>Recent content in Data Analysis on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://www.programmingwithr.com/categories/data-analysis/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/categories/data-analysis/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to reshape a dataframe from wide to long or long to wide format</title>
-      <link>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
+      <guid>/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
       <description>
 
 
@@ -88,7 +89,7 @@ df_pivoted&lt;/code&gt;&lt;/pre&gt;
        subtitle = &amp;quot;I love pivot_longer()&amp;quot;,
        caption = &amp;quot;I was always confused with gather and spread&amp;quot;) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.programmingwithr.com/post/2019-08-01-how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-08-01-how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;In the above code, I’ve repeated the reshaping again - just to imply a point that this is why &lt;code&gt;%&amp;gt;%&lt;/code&gt;s are cool because we can build intuitive ETL (kind-of) pipeline and visualization together step-by-step.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;the-end&#34; class=&#34;section level3&#34;&gt;

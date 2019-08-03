@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <author></author>
+    <author>AbdulMajedRaja RS</author>
     <title>excel on Programming with R</title>
-    <link>https://www.programmingwithr.com/tags/excel/</link>
+    <link>/tags/excel/</link>
     <description>Recent content in excel on Programming with R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://www.programmingwithr.com/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/excel/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to reshape a dataframe from wide to long or long to wide format</title>
-      <link>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
+      <guid>/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
       <description>
 
 
@@ -88,7 +89,7 @@ df_pivoted&lt;/code&gt;&lt;/pre&gt;
        subtitle = &amp;quot;I love pivot_longer()&amp;quot;,
        caption = &amp;quot;I was always confused with gather and spread&amp;quot;) +
   theme_minimal()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.programmingwithr.com/post/2019-08-01-how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-08-01-how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;In the above code, I’ve repeated the reshaping again - just to imply a point that this is why &lt;code&gt;%&amp;gt;%&lt;/code&gt;s are cool because we can build intuitive ETL (kind-of) pipeline and visualization together step-by-step.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;the-end&#34; class=&#34;section level3&#34;&gt;
@@ -108,19 +109,20 @@ df_pivoted&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>How to embed Excel-like Spreadsheet Table in RMarkdown</title>
-      <link>https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</link>
+      <author>AbdulMajedRaja RS</author>
+      <link>/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</guid>
+      <guid>/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/</guid>
       <description>
-&lt;script src=&#34;https://www.programmingwithr.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://www.programmingwithr.com/rmarkdown-libs/jexcel/css/jexcel.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;link href=&#34;https://www.programmingwithr.com/rmarkdown-libs/jexcel/css/japp.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;link href=&#34;https://www.programmingwithr.com/rmarkdown-libs/jexcel/css/jsuites.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://www.programmingwithr.com/rmarkdown-libs/jexcel/js/jexcel.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://www.programmingwithr.com/rmarkdown-libs/jexcel/js/japp.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://www.programmingwithr.com/rmarkdown-libs/jexcel/js/jsuites.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://www.programmingwithr.com/rmarkdown-libs/jexcel-binding/jexcel.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/jexcel/css/jexcel.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;/rmarkdown-libs/jexcel/css/japp.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;/rmarkdown-libs/jexcel/css/jsuites.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/jexcel/js/jexcel.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jexcel/js/japp.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jexcel/js/jsuites.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jexcel-binding/jexcel.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;If there’s a component that’s least interactive in an RMarkdown rendered document or a Shiny app - that’d be the Table that’s displayed. Yes, &lt;code&gt;datatable&lt;/code&gt; does a good job of improving the Table Apperance and custom formatting like Conditional Formatting, it doesn’t give a Google Spreadsheet or Microsoft Excel flavor. This post is to let you know how you can embed that excel-like spreadsheet Table in your Rmarkdown.&lt;/p&gt;

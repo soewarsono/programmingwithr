@@ -21,13 +21,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://www.programmingwithr.com/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://www.programmingwithr.com/css/side-menu.css">
+  <link rel="stylesheet" href="/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="https://www.programmingwithr.com/css/blackburn.css">
+  <link rel="stylesheet" href="/css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,7 +48,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="https://www.programmingwithr.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
 
   
   
@@ -67,7 +67,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="https://www.programmingwithr.com/">Learn R</a>
+  <a class="pure-menu-heading brand" href="/">Learn R</a>
 
 
   <div class="pure-menu">
@@ -75,31 +75,31 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.programmingwithr.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.programmingwithr.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.programmingwithr.com/about/"><i class='fa fa-user fa-fw'></i>About</a>
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.programmingwithr.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://www.programmingwithr.com/r-blogs/"><i class='fa fa-location-arrow fa-fw'></i>R-Blogs</a>
+          <a class="pure-menu-link" href="/r-blogs/"><i class='fa fa-location-arrow fa-fw'></i>R-Blogs</a>
       
         </li>
       
@@ -241,15 +241,15 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/r-packages">R Packages</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="/tags/r-packages">R Packages</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/email">email</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="/tags/email">email</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/infosec">infosec</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="/tags/infosec">infosec</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/cyber-security">cyber security</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="/tags/cyber-security">cyber security</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://www.programmingwithr.com/tags/r-bloggers">r-bloggers</a>
+      <a class="post-taxonomy-tag" href="/tags/r-bloggers">r-bloggers</a>
     
   </div>
   
@@ -300,7 +300,7 @@ remotes::install_github(&quot;hrbrmstr/emailrep&quot;)</code></pre>
 ## [1] FALSE
 ## 
 ## $references
-## [1] 23
+## [1] 22
 ## 
 ## $details
 ## $details$blacklisted
@@ -367,8 +367,8 @@ remotes::install_github(&quot;hrbrmstr/emailrep&quot;)</code></pre>
 ## [1] TRUE
 ## 
 ## $details$profiles
-##  [1] &quot;linkedin&quot;  &quot;twitter&quot;   &quot;spotify&quot;   &quot;aboutme&quot;   &quot;github&quot;   
-##  [6] &quot;pinterest&quot; &quot;vimeo&quot;     &quot;facebook&quot;  &quot;angellist&quot; &quot;instagram&quot;</code></pre>
+##  [1] &quot;linkedin&quot;  &quot;angellist&quot; &quot;facebook&quot;  &quot;spotify&quot;   &quot;vimeo&quot;    
+##  [6] &quot;instagram&quot; &quot;github&quot;    &quot;twitter&quot;   &quot;pinterest&quot; &quot;aboutme&quot;</code></pre>
 <p>As we can see above, the function returns a list with a lot of different basic attributes like <code>reputation</code> and <code>suspicious</code>. It also returns some interesting attributes like <code>data_breach</code> - whether the email id was part of some data leak and <code>profiles</code> - the places / profiles on internet where the email id has appeared.</p>
 </div>
 <div id="emailrep---use-case-multiple-ids" class="section level3">
@@ -413,13 +413,13 @@ result_df</code></pre>
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/"><i class="fa fa-chevron-left"></i></a>
+    <a href="/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://www.programmingwithr.com/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/">How to embed Excel-like Spreadsheet Table in RMarkdown</a>
+      <a href="/how-to-embed-excel-like-spreadsheet-table-in-rmarkdown/">How to embed Excel-like Spreadsheet Table in RMarkdown</a>
     </nav>
     
   </div>
@@ -429,13 +429,13 @@ result_df</code></pre>
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/">How to reshape a dataframe from wide to long or long to wide format</a>
+      <a href="/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/">How to reshape a dataframe from wide to long or long to wide format</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/"><i class="fa fa-chevron-right"></i></a>
+    <a href="/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
@@ -466,8 +466,8 @@ result_df</code></pre>
 
 </div>
 </div>
-<script src="https://www.programmingwithr.com/js/ui.js"></script>
-<script src="https://www.programmingwithr.com/js/menus.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/menus.js"></script>
 
 
 <script>
