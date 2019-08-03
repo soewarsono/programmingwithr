@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+    <author></author>
     <title>reshape on Programming with R</title>
     <link>https://www.programmingwithr.com/tags/reshape/</link>
     <description>Recent content in reshape on Programming with R</description>
@@ -9,7 +10,7 @@
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.programmingwithr.com/tags/reshape/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.programmingwithr.com/tags/reshape/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,7 +19,91 @@
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
-      <description>Reshaping a dataframe / table from long to wide format or wide to long format is one of the daily tasks a Data Analyst / Data Scientist would be doing. The long format is similar to the tidy format that the tidyverse advocates. Even while, it’s been a very common task - the tidyr package’s solution of using spread() and gather() almost never was intuitive enough to be used in the code without SOing or Referring the documentation.</description>
+      <description>
+
+
+&lt;p&gt;Reshaping a dataframe / table from long to wide format or wide to long format is one of the daily tasks a Data Analyst / Data Scientist would be doing. The long format is similar to the &lt;code&gt;tidy&lt;/code&gt; format that the &lt;code&gt;tidyverse&lt;/code&gt; advocates. Even while, it’s been a very common task - the &lt;code&gt;tidyr&lt;/code&gt; package’s solution of using &lt;code&gt;spread()&lt;/code&gt; and &lt;code&gt;gather()&lt;/code&gt; almost never was intuitive enough to be used in the code without SOing or Referring the documentation. While I used to think, It’s just me who didn’t &lt;code&gt;spread&lt;/code&gt; and &lt;code&gt;gather&lt;/code&gt;, It seemed to be mass problem when the package developer &lt;strong&gt;Hadley Wickham&lt;/strong&gt; realized this to completely rewrite those functions into two new functions &lt;code&gt;pivot_wider()&lt;/code&gt; and &lt;code&gt;pivot_longer()&lt;/code&gt; (which is also equivalent to &lt;code&gt;melt()&lt;/code&gt; and &lt;code&gt;cast()&lt;/code&gt; - or simply &lt;code&gt;unpivot&lt;/code&gt; and &lt;code&gt;pivot&lt;/code&gt;)&lt;/p&gt;
+&lt;div id=&#34;update-your-tidyr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;update your &lt;code&gt;tidyr&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;If you are an R-user, It’s highly likely that you’ve got &lt;code&gt;tidyr&lt;/code&gt; either as a standalone package or part of the &lt;code&gt;tidyverse&lt;/code&gt; packages. Please update the package the get the latest &lt;code&gt;tidyr&lt;/code&gt; to get these functions for reshaping.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;tidyr&amp;quot;) 
+
+or
+
+devtools::install_github(&amp;quot;tidyverse/tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and load the library.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyr)
+
+packageVersion(&amp;quot;tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;#39;0.8.3.9000&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data&lt;/h3&gt;
+&lt;p&gt;Let’s take this problem from a very popular &lt;a href=&#34;https://stackoverflow.com/questions/2185252/reshaping-data-frame-from-wide-to-long-format&#34;&gt;Stack Overflow Question&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#data
+df &amp;lt;- read.table(textConnection(
+&amp;quot;Code Country        1950    1951    1952    1953    1954
+AFG  Afghanistan    20249  19000  22532  5000  24555
+ALB  Albania        8097   8986   3000  11123  12246&amp;quot;), header=TRUE)
+
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   Code     Country X1950 X1951 X1952 X1953 X1954
+## 1  AFG Afghanistan 20249 19000 22532  5000 24555
+## 2  ALB     Albania  8097  8986  3000 11123 12246&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This wide format is good for some use-cases but for most of what we do with Data Analysis, it’d require the data to be in the long format.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-reshaping---the-problem&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why Reshaping - The Problem&lt;/h3&gt;
+&lt;p&gt;Given this data, Let’s try to make a Time-series Line Chart using &lt;code&gt;ggplot2&lt;/code&gt;. But the format in which the data is currently shaped (wide) can’t help us in building the line chart because for a line chart using &lt;code&gt;geom_line()&lt;/code&gt; we need the data in the long format - where the x-axis and y-axis are columns (ideally with x being a Time variable and y being a continuous variable) and also that we’ve got the country which could help us comparing both the countries.&lt;/p&gt;
+&lt;p&gt;Let’s do that!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+df_pivoted &amp;lt;- pivot_longer(df, cols = -c(&amp;quot;Code&amp;quot;,&amp;quot;Country&amp;quot;), names_to = &amp;quot;year&amp;quot;)
+
+df_pivoted&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 4
+##    Code  Country     year  value
+##    &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;       &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+##  1 AFG   Afghanistan X1950 20249
+##  2 AFG   Afghanistan X1951 19000
+##  3 AFG   Afghanistan X1952 22532
+##  4 AFG   Afghanistan X1953  5000
+##  5 AFG   Afghanistan X1954 24555
+##  6 ALB   Albania     X1950  8097
+##  7 ALB   Albania     X1951  8986
+##  8 ALB   Albania     X1952  3000
+##  9 ALB   Albania     X1953 11123
+## 10 ALB   Albania     X1954 12246&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I’m personally glad that I don’t have to check the confusing syntax of &lt;code&gt;gather()&lt;/code&gt; instead the intuitve name of &lt;code&gt;pivot_longer()&lt;/code&gt; (which is literally what we’ve to do) flows through my fingers.&lt;/p&gt;
+&lt;p&gt;As you can see above, the &lt;code&gt;pivot_longer()&lt;/code&gt; function as any tidyverse function supports &lt;code&gt;%&amp;gt;%&lt;/code&gt; which also means the first argument is the dataframe itself, then the list of &lt;code&gt;cols&lt;/code&gt; we would like to &lt;code&gt;pivot_longer()&lt;/code&gt; and the next essential argument &lt;code&gt;names_to&lt;/code&gt; - new column name under whcih these are rolled up. This gives us the reshaped data which we could use for plotting. If you came to this article, just to see reshaping, you’re good by this place. But if you want to connect better with the reason why we wanted to reshape in the first place, Let’s go do the line graph!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;line-graph-with-reshaped-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Line Graph with reshaped data&lt;/h3&gt;
+&lt;p&gt;Now that we know how to reshape the data (from wide to long format), we can use &lt;code&gt;ggplot2&lt;/code&gt;’s &lt;code&gt;geom_line()&lt;/code&gt; to plot the (time-series) lines.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df %&amp;gt;% 
+  pivot_longer(-c(&amp;quot;Code&amp;quot;,&amp;quot;Country&amp;quot;),&amp;quot;year&amp;quot;) %&amp;gt;% 
+  mutate(year = as.integer(str_replace(year, &amp;quot;X&amp;quot;,&amp;quot;&amp;quot;))) %&amp;gt;% 
+  ggplot() + geom_line(aes(year, value, group = Country, color = Country)) +
+  labs(title =  &amp;quot;Line Graph after Reshaping&amp;quot;,
+       subtitle = &amp;quot;I love pivot_longer()&amp;quot;,
+       caption = &amp;quot;I was always confused with gather and spread&amp;quot;) +
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.programmingwithr.com/post/2019-08-01-how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the above code, I’ve repeated the reshaping again - just to imply a point that this is why &lt;code&gt;%&amp;gt;%&lt;/code&gt;s are cool because we can build intuitive ETL (kind-of) pipeline and visualization together step-by-step.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-end&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The End&lt;/h3&gt;
+&lt;p&gt;Well, We finally ended up with a beautiful (opinionated) line graph to compare two countries’ (made-up values) which came from a wide format data originally which we reshaped to long format data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/a/57013551/5086335&#34;&gt;how to reshape data from long to wide - SO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tidyverse/tidyr&#34;&gt;tidyr - Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/hadleywickham/status/999348604887293952&#34;&gt;Hadley’s Tweet on spread/gather&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

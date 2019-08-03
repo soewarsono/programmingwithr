@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+    <author></author>
     <title>Text Analytics on Programming with R</title>
     <link>https://www.programmingwithr.com/tags/text-analytics/</link>
     <description>Recent content in Text Analytics on Programming with R</description>
@@ -9,7 +10,7 @@
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.programmingwithr.com/tags/text-analytics/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.programmingwithr.com/tags/text-analytics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,8 +19,74 @@
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
-      <description>Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
-Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).</description>
+      <description>
+
+
+&lt;p&gt;&lt;strong&gt;Sentiment Analysis&lt;/strong&gt; is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like &lt;em&gt;Sarcasm&lt;/em&gt;, &lt;em&gt;Negations&lt;/em&gt; and similar items make Sentiment Analysis a rather tough nut to crack.&lt;/p&gt;
+&lt;p&gt;Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).&lt;/p&gt;
+&lt;div id=&#34;whats-negation-proof&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What’s Negation (Proof)?&lt;/h3&gt;
+&lt;p&gt;Typical &lt;code&gt;lexicon&lt;/code&gt; based Sentiment Analysis solutions can’t handle Negations easily - which is that &lt;strong&gt;good&lt;/strong&gt; is &lt;strong&gt;positive&lt;/strong&gt; and &lt;strong&gt;not good&lt;/strong&gt; is &lt;strong&gt;negative&lt;/strong&gt;. &lt;strong&gt;Negation Proof&lt;/strong&gt; solution is something that can handle such negations and classify their &lt;code&gt;polarity&lt;/code&gt; (&lt;code&gt;sentiment&lt;/code&gt;) correctly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sentimentr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;sentimentr&lt;/h3&gt;
+&lt;p&gt;For building a negation-proof sentiment analysis solution, we’re going to use the R package &lt;code&gt;sentimentr&lt;/code&gt; by &lt;em&gt;Tyler Rinker&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-sentimentr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why sentimentr?&lt;/h3&gt;
+&lt;p&gt;According to the documentation of &lt;a href=&#34;https://github.com/trinker/sentimentr&#34;&gt;sentimentr&lt;/a&gt;,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;So what does&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;sentimentr&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;do that other packages don’t?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;sentimentr&lt;/strong&gt; attempts to take into account valence shifters (i.e.,
+negators, amplifiers (intensifiers), de-amplifiers (downtoners), and
+adversative conjunctions) while maintaining speed. Simply put,
+&lt;strong&gt;sentimentr&lt;/strong&gt; is an augmented dictionary lookup.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For more information on Valence Shifters, Check out sentimentr’s &lt;a href=&#34;https://github.com/trinker/sentimentr/blob/master/README.md&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;You can install the stable version of &lt;code&gt;sentimentr&lt;/code&gt; from CRAN:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;sentimentr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;p&gt;install the development version from Github:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;devtools&amp;quot;)
+
+devtools::install_github(&amp;quot;trinker/lexicon&amp;quot;)
+devtools::install_github(&amp;quot;trinker/sentimentr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loading-the-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Loading the package&lt;/h3&gt;
+&lt;p&gt;Let’s import &lt;code&gt;sentimentr&lt;/code&gt; and also &lt;code&gt;magrittr&lt;/code&gt; for pipe operator (&lt;code&gt;%&amp;gt;%&lt;/code&gt;) and &lt;code&gt;dplyr&lt;/code&gt; for data manipulation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(sentimentr) 
+library(magrittr)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sample-text-with-negations&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sample Text (with Negations)&lt;/h3&gt;
+&lt;p&gt;Let’s define two sentences for us to check if &lt;code&gt;sentimentr&lt;/code&gt; is negation-proof.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;text1 &amp;lt;- &amp;quot;I am a good girl. Today I am happy&amp;quot;
+
+text2 &amp;lt;- &amp;quot;I am not a good girl. Today I&amp;#39;m not happy&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sentiment-analysis-in-action&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sentiment Analysis in Action&lt;/h3&gt;
+&lt;p&gt;We’ll use the function &lt;code&gt;sentiment()&lt;/code&gt; to identify the approximate the sentiment (polarity) of text by sentence.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sentimentr::sentiment(text1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    element_id sentence_id word_count sentiment
+## 1:          1           1          5 0.3354102
+## 2:          1           2          4 0.3750000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sentimentr::sentiment(text2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    element_id sentence_id word_count  sentiment
+## 1:          1           1          6 -0.3061862
+## 2:          1           2          4 -0.3750000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As we can see from the above outputs, using &lt;code&gt;sentimentr&lt;/code&gt; is doing a good job in rightly scoring the sentiment score for sentence with and without negations (valence shifters).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-end&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The End&lt;/h3&gt;
+&lt;p&gt;This is just a very simple (perhaps, Naive too) walkthrough of the &lt;code&gt;sentimentr&lt;/code&gt; package but it has got a lot more like &lt;code&gt;sentiment_by()&lt;/code&gt;, &lt;code&gt;highlight()&lt;/code&gt;, &lt;code&gt;profanity()&lt;/code&gt; and much more. &lt;strong&gt;Tyler Rinker&lt;/strong&gt; has got a very nice, comprehensive and super-helpful documentation and also benchmarks comparing &lt;code&gt;sentimentr&lt;/code&gt; with other similar packages.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

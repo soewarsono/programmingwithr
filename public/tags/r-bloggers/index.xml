@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+    <author></author>
     <title>r-bloggers on Programming with R</title>
     <link>https://www.programmingwithr.com/tags/r-bloggers/</link>
     <description>Recent content in r-bloggers on Programming with R</description>
@@ -9,7 +10,7 @@
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
     <lastBuildDate>Thu, 01 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.programmingwithr.com/tags/r-bloggers/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.programmingwithr.com/tags/r-bloggers/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,7 +19,91 @@
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.programmingwithr.com/how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format/</guid>
-      <description>Reshaping a dataframe / table from long to wide format or wide to long format is one of the daily tasks a Data Analyst / Data Scientist would be doing. The long format is similar to the tidy format that the tidyverse advocates. Even while, it’s been a very common task - the tidyr package’s solution of using spread() and gather() almost never was intuitive enough to be used in the code without SOing or Referring the documentation.</description>
+      <description>
+
+
+&lt;p&gt;Reshaping a dataframe / table from long to wide format or wide to long format is one of the daily tasks a Data Analyst / Data Scientist would be doing. The long format is similar to the &lt;code&gt;tidy&lt;/code&gt; format that the &lt;code&gt;tidyverse&lt;/code&gt; advocates. Even while, it’s been a very common task - the &lt;code&gt;tidyr&lt;/code&gt; package’s solution of using &lt;code&gt;spread()&lt;/code&gt; and &lt;code&gt;gather()&lt;/code&gt; almost never was intuitive enough to be used in the code without SOing or Referring the documentation. While I used to think, It’s just me who didn’t &lt;code&gt;spread&lt;/code&gt; and &lt;code&gt;gather&lt;/code&gt;, It seemed to be mass problem when the package developer &lt;strong&gt;Hadley Wickham&lt;/strong&gt; realized this to completely rewrite those functions into two new functions &lt;code&gt;pivot_wider()&lt;/code&gt; and &lt;code&gt;pivot_longer()&lt;/code&gt; (which is also equivalent to &lt;code&gt;melt()&lt;/code&gt; and &lt;code&gt;cast()&lt;/code&gt; - or simply &lt;code&gt;unpivot&lt;/code&gt; and &lt;code&gt;pivot&lt;/code&gt;)&lt;/p&gt;
+&lt;div id=&#34;update-your-tidyr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;update your &lt;code&gt;tidyr&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;If you are an R-user, It’s highly likely that you’ve got &lt;code&gt;tidyr&lt;/code&gt; either as a standalone package or part of the &lt;code&gt;tidyverse&lt;/code&gt; packages. Please update the package the get the latest &lt;code&gt;tidyr&lt;/code&gt; to get these functions for reshaping.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;tidyr&amp;quot;) 
+
+or
+
+devtools::install_github(&amp;quot;tidyverse/tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and load the library.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyr)
+
+packageVersion(&amp;quot;tidyr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;#39;0.8.3.9000&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data&lt;/h3&gt;
+&lt;p&gt;Let’s take this problem from a very popular &lt;a href=&#34;https://stackoverflow.com/questions/2185252/reshaping-data-frame-from-wide-to-long-format&#34;&gt;Stack Overflow Question&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#data
+df &amp;lt;- read.table(textConnection(
+&amp;quot;Code Country        1950    1951    1952    1953    1954
+AFG  Afghanistan    20249  19000  22532  5000  24555
+ALB  Albania        8097   8986   3000  11123  12246&amp;quot;), header=TRUE)
+
+df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   Code     Country X1950 X1951 X1952 X1953 X1954
+## 1  AFG Afghanistan 20249 19000 22532  5000 24555
+## 2  ALB     Albania  8097  8986  3000 11123 12246&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This wide format is good for some use-cases but for most of what we do with Data Analysis, it’d require the data to be in the long format.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-reshaping---the-problem&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why Reshaping - The Problem&lt;/h3&gt;
+&lt;p&gt;Given this data, Let’s try to make a Time-series Line Chart using &lt;code&gt;ggplot2&lt;/code&gt;. But the format in which the data is currently shaped (wide) can’t help us in building the line chart because for a line chart using &lt;code&gt;geom_line()&lt;/code&gt; we need the data in the long format - where the x-axis and y-axis are columns (ideally with x being a Time variable and y being a continuous variable) and also that we’ve got the country which could help us comparing both the countries.&lt;/p&gt;
+&lt;p&gt;Let’s do that!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+df_pivoted &amp;lt;- pivot_longer(df, cols = -c(&amp;quot;Code&amp;quot;,&amp;quot;Country&amp;quot;), names_to = &amp;quot;year&amp;quot;)
+
+df_pivoted&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 4
+##    Code  Country     year  value
+##    &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;       &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+##  1 AFG   Afghanistan X1950 20249
+##  2 AFG   Afghanistan X1951 19000
+##  3 AFG   Afghanistan X1952 22532
+##  4 AFG   Afghanistan X1953  5000
+##  5 AFG   Afghanistan X1954 24555
+##  6 ALB   Albania     X1950  8097
+##  7 ALB   Albania     X1951  8986
+##  8 ALB   Albania     X1952  3000
+##  9 ALB   Albania     X1953 11123
+## 10 ALB   Albania     X1954 12246&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I’m personally glad that I don’t have to check the confusing syntax of &lt;code&gt;gather()&lt;/code&gt; instead the intuitve name of &lt;code&gt;pivot_longer()&lt;/code&gt; (which is literally what we’ve to do) flows through my fingers.&lt;/p&gt;
+&lt;p&gt;As you can see above, the &lt;code&gt;pivot_longer()&lt;/code&gt; function as any tidyverse function supports &lt;code&gt;%&amp;gt;%&lt;/code&gt; which also means the first argument is the dataframe itself, then the list of &lt;code&gt;cols&lt;/code&gt; we would like to &lt;code&gt;pivot_longer()&lt;/code&gt; and the next essential argument &lt;code&gt;names_to&lt;/code&gt; - new column name under whcih these are rolled up. This gives us the reshaped data which we could use for plotting. If you came to this article, just to see reshaping, you’re good by this place. But if you want to connect better with the reason why we wanted to reshape in the first place, Let’s go do the line graph!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;line-graph-with-reshaped-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Line Graph with reshaped data&lt;/h3&gt;
+&lt;p&gt;Now that we know how to reshape the data (from wide to long format), we can use &lt;code&gt;ggplot2&lt;/code&gt;’s &lt;code&gt;geom_line()&lt;/code&gt; to plot the (time-series) lines.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df %&amp;gt;% 
+  pivot_longer(-c(&amp;quot;Code&amp;quot;,&amp;quot;Country&amp;quot;),&amp;quot;year&amp;quot;) %&amp;gt;% 
+  mutate(year = as.integer(str_replace(year, &amp;quot;X&amp;quot;,&amp;quot;&amp;quot;))) %&amp;gt;% 
+  ggplot() + geom_line(aes(year, value, group = Country, color = Country)) +
+  labs(title =  &amp;quot;Line Graph after Reshaping&amp;quot;,
+       subtitle = &amp;quot;I love pivot_longer()&amp;quot;,
+       caption = &amp;quot;I was always confused with gather and spread&amp;quot;) +
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.programmingwithr.com/post/2019-08-01-how-to-reshape-a-dataframe-from-wide-to-long-or-long-to-wide-format_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the above code, I’ve repeated the reshaping again - just to imply a point that this is why &lt;code&gt;%&amp;gt;%&lt;/code&gt;s are cool because we can build intuitive ETL (kind-of) pipeline and visualization together step-by-step.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-end&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The End&lt;/h3&gt;
+&lt;p&gt;Well, We finally ended up with a beautiful (opinionated) line graph to compare two countries’ (made-up values) which came from a wide format data originally which we reshaped to long format data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/a/57013551/5086335&#34;&gt;how to reshape data from long to wide - SO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tidyverse/tidyr&#34;&gt;tidyr - Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/hadleywickham/status/999348604887293952&#34;&gt;Hadley’s Tweet on spread/gather&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -27,7 +112,157 @@
       <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.programmingwithr.com/find-out-bulk-email-id-reputations-risk-using-r/</guid>
-      <description>If you are working in Info Sec / Cyber Security, One of the things that might be part of your day job is to filter email to remove spams / phishing emails. While this could be done at several levels and ways, monitoring the email id (like abc@xyz.com) and validating its reputation to see if it seems risky / suspicious or authentic and then allowing them to reach the user inbox - is one of the solid ways (while it’s also error-prone with False Positives).</description>
+      <description>
+
+
+&lt;p&gt;If you are working in Info Sec / Cyber Security, One of the things that might be part of your day job is to filter email to remove spams / phishing emails. While this could be done at several levels and ways, monitoring the email id (like &lt;code&gt;abc@xyz.com&lt;/code&gt;) and validating its reputation to see if it seems risky / suspicious or authentic and then allowing them to reach the user inbox - is one of the solid ways (while it’s also error-prone with False Positives). In this post, We’ll see how to check the reputation of Email Address in your R code.&lt;/p&gt;
+&lt;div id=&#34;emailrep---intro&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;emailrep - Intro&lt;/h3&gt;
+&lt;p&gt;The package that’s going to help us in checking the reputation of Email ID is &lt;a href=&#34;https://github.com/hrbrmstr/emailrep&#34;&gt;&lt;code&gt;emailrep&lt;/code&gt;&lt;/a&gt; by &lt;a href=&#34;https://github.com/hrbrmstr&#34;&gt;&lt;strong&gt;Bob Rudis&lt;/strong&gt;&lt;/a&gt;. &lt;code&gt;emailrep&lt;/code&gt; is an R-binding for the &lt;code&gt;EmailRep&lt;/code&gt; API provided by the service &lt;a href=&#34;https://emailrep.io/&#34;&gt;emailrep.io&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emailrep.io-reputation---what-does-it-mean&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;emailrep.io Reputation - What does it mean?&lt;/h3&gt;
+&lt;p&gt;Before we move on to the code section, It’s important to understand what does the reputation mean? It simply means the email hasn’t been seen anywhere trustworthy on the internet with the assumption that Trustworthy email addresses have a history and record across multiple sources on the web.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emailrep---installation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;emailrep - Installation&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;emailrep&lt;/code&gt; can be installed from Bob Rudis’ CINC (which ironically stands for &lt;em&gt;CINC Is Not CRAN)&lt;/em&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;emailrep&amp;quot;, repos = &amp;quot;https://cinc.rud.is&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or from multiple other online repos from various Git services&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;remotes::install_git(&amp;quot;https://git.rud.is/hrbrmstr/emailrep.git&amp;quot;)
+# or
+remotes::install_git(&amp;quot;https://git.sr.ht/~hrbrmstr/emailrep&amp;quot;)
+# or
+remotes::install_gitlab(&amp;quot;hrbrmstr/emailrep&amp;quot;)
+# or
+remotes::install_bitbucket(&amp;quot;hrbrmstr/emailrep&amp;quot;)
+# or
+remotes::install_github(&amp;quot;hrbrmstr/emailrep&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emailrep---loading-and-basic-example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;emailrep - Loading and Basic Example&lt;/h3&gt;
+&lt;p&gt;Once installed, &lt;code&gt;emailrep&lt;/code&gt; can be loaded like any other R package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(emailrep)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;emailrep&lt;/code&gt; is quite simple in its structure with one function &lt;code&gt;email_rep()&lt;/code&gt; doing the job for us. Let’s try to find out the reputation of email id - &lt;em&gt;&lt;a href=&#34;mailto:tim@apple.com&#34; class=&#34;email&#34;&gt;tim@apple.com&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;email_rep(&amp;quot;tim@apple.com&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $email
+## [1] &amp;quot;tim@apple.com&amp;quot;
+## 
+## $reputation
+## [1] &amp;quot;high&amp;quot;
+## 
+## $suspicious
+## [1] FALSE
+## 
+## $references
+## [1] 23
+## 
+## $details
+## $details$blacklisted
+## [1] FALSE
+## 
+## $details$malicious_activity
+## [1] FALSE
+## 
+## $details$malicious_activity_recent
+## [1] FALSE
+## 
+## $details$credentials_leaked
+## [1] TRUE
+## 
+## $details$credentials_leaked_recent
+## [1] FALSE
+## 
+## $details$data_breach
+## [1] TRUE
+## 
+## $details$last_seen
+## [1] &amp;quot;02/25/2019&amp;quot;
+## 
+## $details$domain_exists
+## [1] TRUE
+## 
+## $details$domain_reputation
+## [1] &amp;quot;high&amp;quot;
+## 
+## $details$new_domain
+## [1] FALSE
+## 
+## $details$days_since_domain_creation
+## [1] 11853
+## 
+## $details$suspicious_tld
+## [1] FALSE
+## 
+## $details$spam
+## [1] FALSE
+## 
+## $details$free_provider
+## [1] FALSE
+## 
+## $details$disposable
+## [1] FALSE
+## 
+## $details$deliverable
+## [1] FALSE
+## 
+## $details$accept_all
+## [1] FALSE
+## 
+## $details$valid_mx
+## [1] FALSE
+## 
+## $details$spoofable
+## [1] FALSE
+## 
+## $details$spf_strict
+## [1] TRUE
+## 
+## $details$dmarc_enforced
+## [1] TRUE
+## 
+## $details$profiles
+##  [1] &amp;quot;linkedin&amp;quot;  &amp;quot;twitter&amp;quot;   &amp;quot;spotify&amp;quot;   &amp;quot;aboutme&amp;quot;   &amp;quot;github&amp;quot;   
+##  [6] &amp;quot;pinterest&amp;quot; &amp;quot;vimeo&amp;quot;     &amp;quot;facebook&amp;quot;  &amp;quot;angellist&amp;quot; &amp;quot;instagram&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As we can see above, the function returns a list with a lot of different basic attributes like &lt;code&gt;reputation&lt;/code&gt; and &lt;code&gt;suspicious&lt;/code&gt;. It also returns some interesting attributes like &lt;code&gt;data_breach&lt;/code&gt; - whether the email id was part of some data leak and &lt;code&gt;profiles&lt;/code&gt; - the places / profiles on internet where the email id has appeared.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;emailrep---use-case-multiple-ids&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;emailrep - use-case: Multiple IDs&lt;/h3&gt;
+&lt;p&gt;As a Data Scientist, It’d be rare that you are dealing with single email ID for which the reputation could be simply found online. Our programming skills would play well when we’ve got to do this for a bulk of email ids.&lt;/p&gt;
+&lt;p&gt;Let’s try to find out if reptuation of about 3 IDs together and assigning the output in a dataframe so that it could be used for any further purpose like visualization.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# list of email ids
+
+email_ids &amp;lt;- c(&amp;quot;info@jabberbomb.com&amp;quot;, 
+               &amp;quot;bensonjoyce39@gmail.com&amp;quot;,
+               &amp;quot;channing@indiehackers.com&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’ll use &lt;code&gt;purrr&lt;/code&gt; for a bit of functional programming (with &lt;code&gt;map()&lt;/code&gt;)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(purrr)
+library(magrittr)
+
+result_df &amp;lt;- map(email_ids, email_rep) %&amp;gt;%
+  map_df(., magrittr::extract, c(&amp;quot;email&amp;quot;,&amp;quot;reputation&amp;quot;,&amp;quot;suspicious&amp;quot;))
+
+result_df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 3
+##   email                     reputation suspicious
+##   &amp;lt;chr&amp;gt;                     &amp;lt;chr&amp;gt;      &amp;lt;lgl&amp;gt;     
+## 1 info@jabberbomb.com       medium     TRUE      
+## 2 bensonjoyce39@gmail.com   none       TRUE      
+## 3 channing@indiehackers.com high       FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;Thus, we learnt how to use &lt;code&gt;emailrep&lt;/code&gt; to bulk identify reptuation and other such risk attributes of email ids. This should help in Data Security, Validating email for Email Marketing and in Salesforce Automation and many other instances depending upon your area of business.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hrbrmstr/emailrep&#34;&gt;emailrep - R Package by Bob Rudis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://emailrep.io/&#34;&gt;emailrepo.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://emailrep.io/docs/&#34;&gt;emailrepo.io Docs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -36,8 +271,74 @@
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.programmingwithr.com/how-to-do-negation-proof-sentiment-analysis-in-r/</guid>
-      <description>Sentiment Analysis is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like Sarcasm, Negations and similar items make Sentiment Analysis a rather tough nut to crack.
-Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).</description>
+      <description>
+
+
+&lt;p&gt;&lt;strong&gt;Sentiment Analysis&lt;/strong&gt; is one of those things in Machine learning which is still getting improvement with the rise of Deep Learning based NLP solutions. There are many things like &lt;em&gt;Sarcasm&lt;/em&gt;, &lt;em&gt;Negations&lt;/em&gt; and similar items make Sentiment Analysis a rather tough nut to crack.&lt;/p&gt;
+&lt;p&gt;Deep learning as much as it’s effective, it’s also computationally expensive and if you are ready to trade off between Cost (expense) and Accuracy, then you this is the solution for building a negation-proof Sentiment Analysis solution (in R).&lt;/p&gt;
+&lt;div id=&#34;whats-negation-proof&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What’s Negation (Proof)?&lt;/h3&gt;
+&lt;p&gt;Typical &lt;code&gt;lexicon&lt;/code&gt; based Sentiment Analysis solutions can’t handle Negations easily - which is that &lt;strong&gt;good&lt;/strong&gt; is &lt;strong&gt;positive&lt;/strong&gt; and &lt;strong&gt;not good&lt;/strong&gt; is &lt;strong&gt;negative&lt;/strong&gt;. &lt;strong&gt;Negation Proof&lt;/strong&gt; solution is something that can handle such negations and classify their &lt;code&gt;polarity&lt;/code&gt; (&lt;code&gt;sentiment&lt;/code&gt;) correctly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sentimentr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;sentimentr&lt;/h3&gt;
+&lt;p&gt;For building a negation-proof sentiment analysis solution, we’re going to use the R package &lt;code&gt;sentimentr&lt;/code&gt; by &lt;em&gt;Tyler Rinker&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-sentimentr&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Why sentimentr?&lt;/h3&gt;
+&lt;p&gt;According to the documentation of &lt;a href=&#34;https://github.com/trinker/sentimentr&#34;&gt;sentimentr&lt;/a&gt;,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;So what does&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;sentimentr&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;do that other packages don’t?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;sentimentr&lt;/strong&gt; attempts to take into account valence shifters (i.e.,
+negators, amplifiers (intensifiers), de-amplifiers (downtoners), and
+adversative conjunctions) while maintaining speed. Simply put,
+&lt;strong&gt;sentimentr&lt;/strong&gt; is an augmented dictionary lookup.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For more information on Valence Shifters, Check out sentimentr’s &lt;a href=&#34;https://github.com/trinker/sentimentr/blob/master/README.md&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;You can install the stable version of &lt;code&gt;sentimentr&lt;/code&gt; from CRAN:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;sentimentr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;p&gt;install the development version from Github:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;devtools&amp;quot;)
+
+devtools::install_github(&amp;quot;trinker/lexicon&amp;quot;)
+devtools::install_github(&amp;quot;trinker/sentimentr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loading-the-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Loading the package&lt;/h3&gt;
+&lt;p&gt;Let’s import &lt;code&gt;sentimentr&lt;/code&gt; and also &lt;code&gt;magrittr&lt;/code&gt; for pipe operator (&lt;code&gt;%&amp;gt;%&lt;/code&gt;) and &lt;code&gt;dplyr&lt;/code&gt; for data manipulation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(sentimentr) 
+library(magrittr)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sample-text-with-negations&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sample Text (with Negations)&lt;/h3&gt;
+&lt;p&gt;Let’s define two sentences for us to check if &lt;code&gt;sentimentr&lt;/code&gt; is negation-proof.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;text1 &amp;lt;- &amp;quot;I am a good girl. Today I am happy&amp;quot;
+
+text2 &amp;lt;- &amp;quot;I am not a good girl. Today I&amp;#39;m not happy&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sentiment-analysis-in-action&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sentiment Analysis in Action&lt;/h3&gt;
+&lt;p&gt;We’ll use the function &lt;code&gt;sentiment()&lt;/code&gt; to identify the approximate the sentiment (polarity) of text by sentence.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sentimentr::sentiment(text1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    element_id sentence_id word_count sentiment
+## 1:          1           1          5 0.3354102
+## 2:          1           2          4 0.3750000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sentimentr::sentiment(text2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    element_id sentence_id word_count  sentiment
+## 1:          1           1          6 -0.3061862
+## 2:          1           2          4 -0.3750000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As we can see from the above outputs, using &lt;code&gt;sentimentr&lt;/code&gt; is doing a good job in rightly scoring the sentiment score for sentence with and without negations (valence shifters).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-end&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The End&lt;/h3&gt;
+&lt;p&gt;This is just a very simple (perhaps, Naive too) walkthrough of the &lt;code&gt;sentimentr&lt;/code&gt; package but it has got a lot more like &lt;code&gt;sentiment_by()&lt;/code&gt;, &lt;code&gt;highlight()&lt;/code&gt;, &lt;code&gt;profanity()&lt;/code&gt; and much more. &lt;strong&gt;Tyler Rinker&lt;/strong&gt; has got a very nice, comprehensive and super-helpful documentation and also benchmarks comparing &lt;code&gt;sentimentr&lt;/code&gt; with other similar packages.&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

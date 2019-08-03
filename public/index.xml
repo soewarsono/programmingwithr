@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+    <author>AbdulMajedRaja RS</author>
     <title>Programming with R</title>
     <link>https://www.programmingwithr.com/</link>
     <description>Recent content on Programming with R</description>
@@ -221,8 +222,8 @@ remotes::install_github(&amp;quot;hrbrmstr/emailrep&amp;quot;)&lt;/code&gt;&lt;/
 ## [1] TRUE
 ## 
 ## $details$profiles
-##  [1] &amp;quot;pinterest&amp;quot; &amp;quot;twitter&amp;quot;   &amp;quot;instagram&amp;quot; &amp;quot;linkedin&amp;quot;  &amp;quot;angellist&amp;quot;
-##  [6] &amp;quot;vimeo&amp;quot;     &amp;quot;aboutme&amp;quot;   &amp;quot;spotify&amp;quot;   &amp;quot;github&amp;quot;    &amp;quot;facebook&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+##  [1] &amp;quot;linkedin&amp;quot;  &amp;quot;twitter&amp;quot;   &amp;quot;spotify&amp;quot;   &amp;quot;aboutme&amp;quot;   &amp;quot;github&amp;quot;   
+##  [6] &amp;quot;pinterest&amp;quot; &amp;quot;vimeo&amp;quot;     &amp;quot;facebook&amp;quot;  &amp;quot;angellist&amp;quot; &amp;quot;instagram&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As we can see above, the function returns a list with a lot of different basic attributes like &lt;code&gt;reputation&lt;/code&gt; and &lt;code&gt;suspicious&lt;/code&gt;. It also returns some interesting attributes like &lt;code&gt;data_breach&lt;/code&gt; - whether the email id was part of some data leak and &lt;code&gt;profiles&lt;/code&gt; - the places / profiles on internet where the email id has appeared.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;emailrep---use-case-multiple-ids&#34; class=&#34;section level3&#34;&gt;
