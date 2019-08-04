@@ -8,10 +8,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Visualization</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/data-visualization/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Interactive Visualization</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/interactive-visualization/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/interactive-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Packages</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/r-packages/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-packages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>r-bloggers</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/r-bloggers/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-bloggers/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>programming</title>
@@ -20,16 +60,6 @@
       <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>r-bloggers</title>
-      <author>AbdulMajedRaja RS</author>
-      <link>/tags/r-bloggers/</link>
-      <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     
@@ -70,16 +100,6 @@
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/spreadsheet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Packages</title>
-      <author>AbdulMajedRaja RS</author>
-      <link>/tags/r-packages/</link>
-      <pubDate>Wed, 31 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-packages/</guid>
       <description></description>
     </item>
     
