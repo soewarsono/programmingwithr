@@ -4,13 +4,60 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/data-visualization/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/data-visualization/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/how-to-make-square-pie-charts-for-infographics-in-r/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/how-to/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r-packages/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r-bloggers/</loc>
+    <lastmod>2019-08-06T20:10:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -26,44 +73,8 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/categories/text/</loc>
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-bloggers/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/data-visualization/</loc>
-    <lastmod>2019-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/how-to/</loc>
-    <lastmod>2019-08-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -76,12 +87,6 @@
   <url>
     <loc>/interactive-visualization-in-r-with-apexcharter/</loc>
     <lastmod>2019-08-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-packages/</loc>
-    <lastmod>2019-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

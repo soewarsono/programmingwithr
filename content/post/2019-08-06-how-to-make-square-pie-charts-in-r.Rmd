@@ -1,0 +1,79 @@
+---
+title: How to make Square (Pie) Charts for Infographics in R
+author: AbdulMajedRaja RS
+date: '2019-08-06 20:10:10'
+slug: how-to-make-square-pie-charts-for-infographics-in-r
+categories:
+  - Data Visualization
+  - How-To
+tags:
+  - Data Visualization
+  - R Packages
+  - r-bloggers
+description: 'using waffle R package'
+topics: []
+---
+
+Are you looking for some unique way of visualizing your numbers instead of simply using bar charts - which sometimes could be boring the audience - if used, slide after slide? Here's Square Pie / Waffle Chart for you.
+
+Waffle Chart or as it goes technically, Square Pie Chart is just is just a pie chart that use squares instead of circles to represent percentages. So, it's good to keep in mind that this is applicable better for Percentages. Also, Square Pie Chart is a good chart to be added in an Infographic where such visualizations are common but in a corporate set up, I guess this wouldn't find its day or probably, show up only rarely. 
+
+We're going to use [Waffle](https://github.com/hrbrmstr/waffle) package by the well-known [boB Rudis](https://github.com/hrbrmstr). 
+
+### Installation & Loading
+
+```{r eval=FALSE}
+install.packages("waffle", repos = "https://cinc.rud.is")
+# or
+devtools::install_git("https://git.rud.is/hrbrmstr/waffle.git")
+# or
+devtools::install_github("hrbrmstr/waffle")
+```
+
+**Make sure you install using any of the above methods and not from CRAN, as CRAN Package isn't the latest one** 
+
+```{r}
+library(waffle)
+```
+
+### Use-cse: Stack Overflow Dev Survey Women Respondents 
+
+My opinion, with visualizations, the trick is to use the right visualization for the right set of data rather than simply using any because of our fondness. Said that, to make Square Pie Charts let's try to visualize the percentage of Women respondents on [Hackerrank 2018 Developer Survey](https://www.kaggle.com/nulldata/hacker-women-in-tech-hackerrank-analysis)
+
+```{r}
+
+# reference: https://www.kaggle.com/nulldata/hacker-women-in-tech-hackerrank-analysis
+
+hr_wo <- data.frame(
+  Gender = c("Male","Female"),
+  hr_percentage = c(83,17),
+  stringsAsFactors = FALSE)
+```
+
+### Waffle in Action
+
+```{r}
+
+library(waffle)
+library(ggplot2)
+
+  ggplot(data = hr_wo, 
+         aes(fill = Gender, values = hr_percentage)) +
+  geom_waffle(n_rows = 10, size = 0.5, colour = "#ffffff",      flip = TRUE) +
+  scale_fill_manual(values = c("#f59cbf","#00daff")) +
+  coord_equal() +
+  theme_minimal() +
+  theme_enhance_waffle() +
+  labs(title = "% Male & Female - Survey Respondents ",
+       subtitle = "Hackerrank Developer Survey 2018",
+       caption = "Plot made using `waffle` - R package")
+```
+
+### Summary
+
+That's a really beautiful plot - aesthetically and also it's good enough (or IMO better than a typical Pie Chart) in repesenting a realistic picture of the percentages. This ends this quick tutorial to make visualizations with waffle / square pie charts when dealing with percentags. 
+
+### References
+
++ [waffle R package](https://github.com/hrbrmstr/waffle)
+

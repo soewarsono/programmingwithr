@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="using waffle R package">
+  <meta name="generator" content="Hugo 0.56.1" />
+
+  <title>How to make Square (Pie) Charts for Infographics in R &middot; Programming with R</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">Learn R</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/r-blogs/"><i class='fa fa-location-arrow fa-fw'></i>R-Blogs</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/amrrs/" rel="me" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/amrrs" rel="me" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. AbdulMajedRaja - All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>How to make Square (Pie) Charts for Infographics in R</h1>
+  <h2>using waffle R package</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    
+    <i class="fa fa-user fa-fw"></i>
+    <span>AbdulMajedRaja RS</span>
+    
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>06 Aug 2019</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/data-visualization">Data Visualization</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/r-packages">R Packages</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/r-bloggers">r-bloggers</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<p>Are you looking for some unique way of visualizing your numbers instead of simply using bar charts - which sometimes could be boring the audience - if used, slide after slide? Here’s Square Pie / Waffle Chart for you.</p>
+<p>Waffle Chart or as it goes technically, Square Pie Chart is just is just a pie chart that use squares instead of circles to represent percentages. So, it’s good to keep in mind that this is applicable better for Percentages. Also, Square Pie Chart is a good chart to be added in an Infographic where such visualizations are common but in a corporate set up, I guess this wouldn’t find its day or probably, show up only rarely.</p>
+<p>We’re going to use <a href="https://github.com/hrbrmstr/waffle">Waffle</a> package by the well-known <a href="https://github.com/hrbrmstr">boB Rudis</a>.</p>
+<div id="installation-loading" class="section level3">
+<h3>Installation &amp; Loading</h3>
+<pre class="r"><code>install.packages(&quot;waffle&quot;, repos = &quot;https://cinc.rud.is&quot;)
+# or
+devtools::install_git(&quot;https://git.rud.is/hrbrmstr/waffle.git&quot;)
+# or
+devtools::install_github(&quot;hrbrmstr/waffle&quot;)</code></pre>
+<p><strong>Make sure you install using any of the above methods and not from CRAN, as CRAN Package isn’t the latest one</strong></p>
+<pre class="r"><code>library(waffle)</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+</div>
+<div id="use-cse-stack-overflow-dev-survey-women-respondents" class="section level3">
+<h3>Use-cse: Stack Overflow Dev Survey Women Respondents</h3>
+<p>My opinion, with visualizations, the trick is to use the right visualization for the right set of data rather than simply using any because of our fondness. Said that, to make Square Pie Charts let’s try to visualize the percentage of Women respondents on <a href="https://www.kaggle.com/nulldata/hacker-women-in-tech-hackerrank-analysis">Hackerrank 2018 Developer Survey</a></p>
+<pre class="r"><code># reference: https://www.kaggle.com/nulldata/hacker-women-in-tech-hackerrank-analysis
+
+hr_wo &lt;- data.frame(
+  Gender = c(&quot;Male&quot;,&quot;Female&quot;),
+  hr_percentage = c(83,17),
+  stringsAsFactors = FALSE)</code></pre>
+</div>
+<div id="waffle-in-action" class="section level3">
+<h3>Waffle in Action</h3>
+<pre class="r"><code>library(waffle)
+library(ggplot2)
+
+  ggplot(data = hr_wo, 
+         aes(fill = Gender, values = hr_percentage)) +
+  geom_waffle(n_rows = 10, size = 0.5, colour = &quot;#ffffff&quot;,      flip = TRUE) +
+  scale_fill_manual(values = c(&quot;#f59cbf&quot;,&quot;#00daff&quot;)) +
+  coord_equal() +
+  theme_minimal() +
+  theme_enhance_waffle() +
+  labs(title = &quot;% Male &amp; Female - Survey Respondents &quot;,
+       subtitle = &quot;Hackerrank Developer Survey 2018&quot;,
+       caption = &quot;Plot made using `waffle` - R package&quot;)</code></pre>
+<p><img src="/post/2019-08-06-how-to-make-square-pie-charts-in-r_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="summary" class="section level3">
+<h3>Summary</h3>
+<p>That’s a really beautiful plot - aesthetically and also it’s good enough (or IMO better than a typical Pie Chart) in repesenting a realistic picture of the percentages. This ends this quick tutorial to make visualizations with waffle / square pie charts when dealing with percentags.</p>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+<ul>
+<li><a href="https://github.com/hrbrmstr/waffle">waffle R package</a></li>
+</ul>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/how-to-create-unigrams-bigrams-and-n-grams-of-app-reviews/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/how-to-create-unigrams-bigrams-and-n-grams-of-app-reviews/">How to create unigrams, bigrams and n-grams of App Reviews</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'amrrs';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+<script src="/js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-144565273-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
+
