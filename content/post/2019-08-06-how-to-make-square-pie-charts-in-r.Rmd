@@ -1,7 +1,7 @@
 ---
 title: How to make Square (Pie) Charts for Infographics in R
 author: AbdulMajedRaja RS
-date: '2019-08-06 20:10:10'
+date: '2019-08-06 10:10:10'
 slug: how-to-make-square-pie-charts-for-infographics-in-r
 categories:
   - Data Visualization
