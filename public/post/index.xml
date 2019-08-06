@@ -8,10 +8,197 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to create unigrams, bigrams and n-grams of App Reviews</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/how-to-create-unigrams-bigrams-and-n-grams-of-app-reviews/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/how-to-create-unigrams-bigrams-and-n-grams-of-app-reviews/</guid>
+      <description>
+
+
+&lt;p&gt;This is one of the frequent questions I’ve heard from the first timer NLP / Text Analytics - programmers (or as the world likes it to be called “Data Scientists”).&lt;/p&gt;
+&lt;div id=&#34;prerequisite&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Prerequisite&lt;/h3&gt;
+&lt;p&gt;For simplicity, this post assumes that you already know how to install a package and so you’ve got &lt;code&gt;tidytext&lt;/code&gt; installed on your R machine.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;tidytext&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loading-the-library&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Loading the Library&lt;/h3&gt;
+&lt;p&gt;Let’s start with loading the &lt;code&gt;tidytext&lt;/code&gt; library.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidytext)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extracting-app-reviews&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Extracting App Reviews&lt;/h3&gt;
+&lt;p&gt;We’ll use the R-package &lt;code&gt;itunesr&lt;/code&gt; for downloading iOS App Reviews on which we’ll perform Simple Text Analysis (unigrams, bigrams, n-grams). &lt;code&gt;getReviews()&lt;/code&gt; funciton of &lt;code&gt;itunesr&lt;/code&gt; helps us in extracting reviews of Medium iOS App.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(itunesr)
+library(tidyverse)
+
+# Extracting Medium iOS App Reviews
+medium &amp;lt;- getReviews(&amp;quot;828256236&amp;quot;,&amp;quot;us&amp;quot;,1)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;overview-of-the-extract-app-reviews&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Overview of the extract App Reviews&lt;/h3&gt;
+&lt;p&gt;As usual, we’ll start with seeing what’s &lt;code&gt;head&lt;/code&gt; of the dataframe.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(medium) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                     Title
+## 1                         Great source...
+## 2                              I love it!
+## 3 Medium Provide wide variety of articles
+## 4                        A bargain at 50$
+## 5                                 Awesome
+## 6                             Love Medium
+##                                        Author_URL     Author_Name
+## 1  https://itunes.apple.com/us/reviews/id14871198 Helpful Program
+## 2 https://itunes.apple.com/us/reviews/id622727268   tacos are lit
+## 3 https://itunes.apple.com/us/reviews/id124091445   Anjan12344321
+## 4 https://itunes.apple.com/us/reviews/id105720950       Judster64
+## 5  https://itunes.apple.com/us/reviews/id39489978          jalton
+## 6  https://itunes.apple.com/us/reviews/id26999143   girlbakespies
+##   App_Version Rating
+## 1        3.89      5
+## 2        3.89      5
+## 3        3.89      5
+## 4        3.89      5
+## 5        3.89      4
+## 6        3.88      5
+##                                                                                                                                                                                                                                                                                                Review
+## 1                                                                                                                                                                                                                                            Great source for top content and food for mind and soul.
+## 2                                                                                                                                                                                                                                                                                                ⠀⠀⠀⠀
+## 3 I am feeling happy about Medium yearly subscription, Each penny os worth. Medium provides wide range of articles. I really like some of the authors! I am trying to start writing my own articles, this is the best forum to express your opinions and based on feedback you can improve your self.
+## 4                                                                                                                                                                                                                                  The most interesting articles at your fingertips. No ads. Love it.
+## 5                                                                                                                                                                                                                     Just need to be able to bookmark without crashing the app and it’ll be 5 stars.
+## 6                                                                                                I am on my second month.I am getting back into writing again and Medium is a brilliant community of writers. I Highly recommend it for entertainment and an outanding information resource #READMORE
+##                  Date
+## 1 2019-08-04 15:09:50
+## 2 2019-08-04 10:04:59
+## 3 2019-08-03 03:10:22
+## 4 2019-08-01 14:40:14
+## 5 2019-07-31 23:56:41
+## 6 2019-07-31 03:15:44&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, we know that there are two Text Columns of our interest - &lt;code&gt;Title&lt;/code&gt; and &lt;code&gt;Review&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To make our n-grams analysis a bit more meaningful, we’ll extract only the positive reviews (5-star) to see what’s good people are writing about Medium iOS App. To make a better sense of the filter we’ve to use let’s see the split of &lt;code&gt;Rating&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(medium$Rating)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  1  3  4  5 
+##  5  5  5 34&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So, 5-star is the major component in the text reviews we extract and we’re good to go filtering only 5-star.We’ll pick &lt;code&gt;Review&lt;/code&gt; from that and also we’ll specify it only for &lt;code&gt;Rating == 5&lt;/code&gt;. Since we need a dataframe (or tibble) for tidytext to process it, we’ll put these 5-star reviews as a new column in a new dataframe.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;reviews &amp;lt;- data.frame(txt = medium$Review[medium$Rating==5],
+                      stringsAsFactors = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tokens&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Tokens&lt;/h3&gt;
+&lt;p&gt;Tokenization in NLP is the process of splitting a text corpus based on some splitting factor - It could be Word Tokens or Sentence Tokens or based on some advanced alogrithm to split a conversation. In this process, we’ll just simply do word tokenization.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;reviews %&amp;gt;% 
+  unnest_tokens(output = word, input = txt) %&amp;gt;% 
+  head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        word
+## 1     great
+## 1.1  source
+## 1.2     for
+## 1.3     top
+## 1.4 content
+## 1.5     and&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see above, &lt;code&gt;unnest_tokens()&lt;/code&gt; is the function that’ll help us in this tokenization process. Since it supports &lt;code&gt;%&amp;gt;%&lt;/code&gt; pipe operator, the first argument of the function is a &lt;code&gt;dataframe&lt;/code&gt; or &lt;code&gt;tibble&lt;/code&gt;, the second argument &lt;code&gt;output&lt;/code&gt; is the name of the output (new) column where the tokenized words are going to be put in. The third column &lt;code&gt;input&lt;/code&gt; is where the input text is fed in.&lt;/p&gt;
+&lt;p&gt;Now, this is what &lt;code&gt;unigram&lt;/code&gt;s are for this Medium iOS App Reviews. As with many other data science projects, Data like this is not useful unless it’s visualized in a way to look at insights.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;reviews %&amp;gt;% 
+  unnest_tokens(output = word, input = txt) %&amp;gt;% 
+  count(word, sort = TRUE) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 444 x 2
+##    word         n
+##    &amp;lt;chr&amp;gt;    &amp;lt;int&amp;gt;
+##  1 the         45
+##  2 i           35
+##  3 and         34
+##  4 of          27
+##  5 to          27
+##  6 a           18
+##  7 it          14
+##  8 medium      14
+##  9 this        13
+## 10 articles    12
+## # … with 434 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Roughly, looking at the most frequently appeared unigram we end up with &lt;code&gt;the&lt;/code&gt;,&lt;code&gt;i&lt;/code&gt;,&lt;code&gt;and&lt;/code&gt; and this is one of those places where we need to &lt;em&gt;remove stopwords&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;stopword-removal&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Stopword Removal&lt;/h3&gt;
+&lt;p&gt;Fortunately, &lt;code&gt;tidytext&lt;/code&gt; helps us in removing stopwords by having a dataframe of stopwords from multiple lexicons. With that, we can use &lt;code&gt;anti_join&lt;/code&gt; for picking the words (that are present in the left df (&lt;code&gt;reviews&lt;/code&gt;) but not present in the right df (&lt;code&gt;stop_words&lt;/code&gt;)).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;reviews %&amp;gt;% 
+  unnest_tokens(output = word, input = txt) %&amp;gt;% 
+  anti_join(stop_words) %&amp;gt;% 
+  count(word, sort = TRUE) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;word&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 280 x 2
+##    word         n
+##    &amp;lt;chr&amp;gt;    &amp;lt;int&amp;gt;
+##  1 medium      14
+##  2 articles    12
+##  3 app          9
+##  4 reading      9
+##  5 content      6
+##  6 love         5
+##  7 read         5
+##  8 article      4
+##  9 enjoy        4
+## 10 i’ve         4
+## # … with 270 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With that stop word removal, now we can see better represenation of most frequently appearing unigrams in the reviews.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;unigram-visualziation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;unigram Visualziation&lt;/h3&gt;
+&lt;p&gt;We’ve got our data in the shape that we want so, let’s go ahead and visualize it. To keep the pipeline intact, I’m not creating any temporary object to store the previous output and just simply continue using the same. Also too many bars (words) wouldn’t make any sense (except resulting in a shabby plot), We’ll filter taking the top 10 words&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;reviews %&amp;gt;% 
+  unnest_tokens(output = word, input = txt) %&amp;gt;% 
+  anti_join(stop_words) %&amp;gt;% 
+  count(word, sort = TRUE) %&amp;gt;% 
+  slice(1:10) %&amp;gt;% 
+  ggplot() + geom_bar(aes(word, n), stat = &amp;quot;identity&amp;quot;, fill = &amp;quot;#de5833&amp;quot;) +
+  theme_minimal() +
+  labs(title = &amp;quot;Top unigrams of Medium iOS App Reviews&amp;quot;,
+       subtitle = &amp;quot;using Tidytext in R&amp;quot;,
+       caption = &amp;quot;Data Source: itunesr - iTunes App Store&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;word&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-08-06-how-to-create-unigrams-bigrams-and-n-grams-of-app-reviews_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bigrams-n-grams&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bigrams &amp;amp; N-grams&lt;/h3&gt;
+&lt;p&gt;Now that we’ve got the core code for unigram visualization set up. We can slightly modify the same - just by adding a new argument &lt;code&gt;n=2&lt;/code&gt; and &lt;code&gt;token=&#34;ngrams&#34;&lt;/code&gt; to the tokenization process to extract n-gram. &lt;code&gt;2&lt;/code&gt; for bigram and &lt;code&gt;3&lt;/code&gt; trigram - or &lt;code&gt;n&lt;/code&gt; of your interest. But remember, large n-values may not useful as the smaller values.&lt;/p&gt;
+&lt;p&gt;Doing this naively also has a catch and the catch is - the stop-word removal process we used above was using &lt;code&gt;anti_join&lt;/code&gt; which wouldn’t be supported in this process since we’ve a bigram (two-word combination separated by a space). So, we’ll &lt;code&gt;separate&lt;/code&gt; the word by &lt;code&gt;space&lt;/code&gt; and then filter out the stop words in both &lt;code&gt;word1&lt;/code&gt; and &lt;code&gt;word2&lt;/code&gt; and then &lt;code&gt;unite&lt;/code&gt; them back - which gives us the &lt;code&gt;bigram&lt;/code&gt; after stop-word removal. This is the process that you might have to carry out when you are dealing with n-grams.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;reviews %&amp;gt;% 
+  unnest_tokens(word, txt, token = &amp;quot;ngrams&amp;quot;, n = 2) %&amp;gt;% 
+  separate(word, c(&amp;quot;word1&amp;quot;, &amp;quot;word2&amp;quot;), sep = &amp;quot; &amp;quot;) %&amp;gt;% 
+  filter(!word1 %in% stop_words$word) %&amp;gt;%
+  filter(!word2 %in% stop_words$word) %&amp;gt;% 
+  unite(word,word1, word2, sep = &amp;quot; &amp;quot;) %&amp;gt;% 
+  count(word, sort = TRUE) %&amp;gt;% 
+  slice(1:10) %&amp;gt;% 
+  ggplot() + geom_bar(aes(word, n), stat = &amp;quot;identity&amp;quot;, fill = &amp;quot;#de5833&amp;quot;) +
+  theme_minimal() +
+  coord_flip() +
+  labs(title = &amp;quot;Top Bigrams of Medium iOS App Reviews&amp;quot;,
+       subtitle = &amp;quot;using Tidytext in R&amp;quot;,
+       caption = &amp;quot;Data Source: itunesr - iTunes App Store&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-08-06-how-to-create-unigrams-bigrams-and-n-grams-of-app-reviews_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;This particular assignment that may not reveal some meaningful insights as we started with less data, but this is really useful when you have a decent amount of text corpus and this simple analysis of unigram, bigram (n-gram analysis) can reveal something business-worthy (let’s say in Customer Service, App Development or in multiple other use-cases).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tidytextmining.com/&#34;&gt;Tidy Text Mining&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/amrrs/itunesr/&#34;&gt;itunesr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Interactive Visualization in R with apexcharter</title>

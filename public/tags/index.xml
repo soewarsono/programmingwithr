@@ -8,7 +8,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,9 +17,29 @@
       <title>Data Visualization</title>
       <author>AbdulMajedRaja RS</author>
       <link>/tags/data-visualization/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/nlp/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>r-bloggers</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/r-bloggers/</link>
+      <pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     
@@ -40,16 +60,6 @@
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-packages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>r-bloggers</title>
-      <author>AbdulMajedRaja RS</author>
-      <link>/tags/r-bloggers/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     
@@ -140,16 +150,6 @@
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NLP</title>
-      <author>AbdulMajedRaja RS</author>
-      <link>/tags/nlp/</link>
-      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/nlp/</guid>
       <description></description>
     </item>
     
