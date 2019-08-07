@@ -3,14 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/beginners-cookbook-for-interactive-visualization-in-r-with-highcharter/</loc>
-    <lastmod>2019-08-07T00:00:00+00:00</lastmod>
+    <loc>/categories/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-08-07T00:00:00+00:00</lastmod>
+    <loc>/categories/data-analysis/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/extract-top-reddit-posts-of-rstats-in-3-lines-of-r-code/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/how-to/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/hacks/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tips-and-tricks/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/web-scraping/</loc>
+    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/beginners-cookbook-for-interactive-visualization-in-r-with-highcharter/</loc>
+    <lastmod>2019-08-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -32,25 +85,7 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-08-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-08-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/r-packages/</loc>
-    <lastmod>2019-08-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-08-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -70,12 +105,6 @@
   <url>
     <loc>/how-to-make-square-pie-charts-for-infographics-in-r/</loc>
     <lastmod>2019-08-06T10:10:10+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/how-to/</loc>
-    <lastmod>2019-08-06T10:10:10+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -114,12 +143,6 @@
   <url>
     <loc>/tags/tiobe/</loc>
     <lastmod>2019-08-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/data-analysis/</loc>
-    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
