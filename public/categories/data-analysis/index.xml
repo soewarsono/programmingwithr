@@ -8,7 +8,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Wed, 07 Aug 2019 08:10:10 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2019 08:11:10 +0000</lastBuildDate>
     
         <atom:link href="/categories/data-analysis/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,7 @@
       <title>Extract Top Reddit Posts of #rstats in 3 lines of R Code </title>
       <author>AbdulMajedRaja RS</author>
       <link>/extract-top-reddit-posts-of-rstats-in-3-lines-of-r-code/</link>
-      <pubDate>Wed, 07 Aug 2019 08:10:10 +0000</pubDate>
+      <pubDate>Wed, 07 Aug 2019 08:11:10 +0000</pubDate>
       
       <guid>/extract-top-reddit-posts-of-rstats-in-3-lines-of-r-code/</guid>
       <description>
@@ -83,6 +83,10 @@ reddit &amp;lt;- fromJSON(&amp;quot;https://www.reddit.com/r/rstats/.json&amp;qu
 &lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/rstats/&#34;&gt;rstats reddit&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/jeroen/jsonlite&#34;&gt;jsonline - Github&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;read-more&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Read more&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.programmingwithr.com/beginners-cookbook-for-interactive-visualization-in-r-with-highcharter/&#34;&gt;Beginners Cookbook for Interactive Visualization in R with highcharter&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;If you like &lt;a href=&#34;https://www.programmingwithr.com/&#34;&gt;our posts&lt;/a&gt;, Please share it with your Friends and Network. Use &lt;a href=&#34;https://www.programmingwithr.com/index.xml&#34;&gt;our RSS Feed&lt;/a&gt;, to subscribe for latest update from &lt;a href=&#34;https://www.programmingwithr.com/&#34;&gt;programmingwithr.com&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>

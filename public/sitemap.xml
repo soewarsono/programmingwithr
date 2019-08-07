@@ -4,60 +4,66 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/data-analysis/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/extract-top-reddit-posts-of-rstats-in-3-lines-of-r-code/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/how-to/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/hacks/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r-bloggers/</loc>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/tips-and-tricks/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/web-scraping/</loc>
-    <lastmod>2019-08-07T08:10:10+00:00</lastmod>
+    <lastmod>2019-08-07T08:11:10+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -67,13 +73,13 @@
   </url>
   
   <url>
-    <loc>/tags/data-visualization/</loc>
+    <loc>/categories/data-visualization/</loc>
     <lastmod>2019-08-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/data-visualization/</loc>
+    <loc>/tags/data-visualization/</loc>
     <lastmod>2019-08-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -92,12 +98,6 @@
   
   <url>
     <loc>/tags/javascript/</loc>
-    <lastmod>2019-08-07T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-bloggers/</loc>
     <lastmod>2019-08-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

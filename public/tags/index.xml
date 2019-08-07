@@ -8,7 +8,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. AbdulMajedRaja - All rights reserved.</copyright>
-    <lastBuildDate>Wed, 07 Aug 2019 08:10:10 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2019 08:11:10 +0000</lastBuildDate>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,9 +17,19 @@
       <title>hacks</title>
       <author>AbdulMajedRaja RS</author>
       <link>/tags/hacks/</link>
-      <pubDate>Wed, 07 Aug 2019 08:10:10 +0000</pubDate>
+      <pubDate>Wed, 07 Aug 2019 08:11:10 +0000</pubDate>
       
       <guid>/tags/hacks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>r-bloggers</title>
+      <author>AbdulMajedRaja RS</author>
+      <link>/tags/r-bloggers/</link>
+      <pubDate>Wed, 07 Aug 2019 08:11:10 +0000</pubDate>
+      
+      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     
@@ -27,7 +37,7 @@
       <title>tips and tricks</title>
       <author>AbdulMajedRaja RS</author>
       <link>/tags/tips-and-tricks/</link>
-      <pubDate>Wed, 07 Aug 2019 08:10:10 +0000</pubDate>
+      <pubDate>Wed, 07 Aug 2019 08:11:10 +0000</pubDate>
       
       <guid>/tags/tips-and-tricks/</guid>
       <description></description>
@@ -37,7 +47,7 @@
       <title>web scraping</title>
       <author>AbdulMajedRaja RS</author>
       <link>/tags/web-scraping/</link>
-      <pubDate>Wed, 07 Aug 2019 08:10:10 +0000</pubDate>
+      <pubDate>Wed, 07 Aug 2019 08:11:10 +0000</pubDate>
       
       <guid>/tags/web-scraping/</guid>
       <description></description>
@@ -80,16 +90,6 @@
       <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>r-bloggers</title>
-      <author>AbdulMajedRaja RS</author>
-      <link>/tags/r-bloggers/</link>
-      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-bloggers/</guid>
       <description></description>
     </item>
     

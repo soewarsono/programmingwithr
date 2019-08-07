@@ -1,7 +1,7 @@
 ---
 title: 'Extract Top Reddit Posts of #rstats in 3 lines of R Code '
 author: AbdulMajedRaja RS
-date: '2019-08-07 8:10:10'
+date: '2019-08-07 8:11:10'
 slug: extract-top-reddit-posts-of-rstats-in-3-lines-of-r-code
 categories:
   - Data Analysis
@@ -10,6 +10,7 @@ tags:
   - web scraping
   - hacks
   - tips and tricks
+  - r-bloggers
 description: 'using jsonlite'
 topics: []
 ---
@@ -58,6 +59,9 @@ This post while is primarily intended to demonstrate the simplicity of R and `js
 + [rstats reddit](https://www.reddit.com/r/rstats/)
 + [jsonline - Github](https://github.com/jeroen/jsonlite)
 
+### Read more
+
+[Beginners Cookbook for Interactive Visualization in R with highcharter](https://www.programmingwithr.com/beginners-cookbook-for-interactive-visualization-in-r-with-highcharter/)
 
 
 *If you like [our posts](https://www.programmingwithr.com/), Please share it with your Friends and Network. Use [our RSS Feed](https://www.programmingwithr.com/index.xml), to subscribe for latest update from [programmingwithr.com](https://www.programmingwithr.com/)*
